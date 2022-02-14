@@ -1,1 +1,27 @@
-<p>calendar-weather works!</p>
+<div class="container-fluid mt-3">
+    <div class="row col-md-5 m-auto d-flex justify-content-around">
+        <div *ngFor="let day of days; let i = index" class="col p-0 m-1" id="divWeatherMain">
+            <a style="text-decoration: none;" href="">
+                <div class="text-center date">
+                    <div>
+                        {{ getDate(day.dt) | date:"MMM d"}}
+                    </div>
+                    <div>
+                        {{ getDate(day.dt) | date:"EE":"hu" }}
+                    </div>
+                </div>
+            </a>
+            <hr class="m-0">
+            <div class="weather">
+                <div *ngIf="true" class="weatherWidgetRow d-flex">
+                    <img style="height: 40px;" src="http://openweathermap.org/img/wn/{{ day.weather[0].icon }}@2x.png"
+                        alt="">
+                    <div class="weatherWidgetRow mt-1" style="font-size: 20px">{{ day.temp.day.toFixed(0) }}°</div>
+                </div>
+                <div class="weatherWidgetRow" style="font-size: 12px;">{{ day.temp.min.toFixed(0) }}° / {{
+                    day.temp.max.toFixed(0) }}°</div>
+                <!-- <div class="weatherWidgetRow" style="font-size: 12px;">{{ day.humidity }}%</div> -->
+            </div>
+        </div>
+    </div>
+</div>

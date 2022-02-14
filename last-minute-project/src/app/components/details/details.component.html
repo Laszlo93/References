@@ -1,1 +1,3 @@
-<app-calendar-weather></app-calendar-weather>
+<div *ngIf="packageDetails">
+    <app-calendar-weather [packageDetails]="packageDetails"></app-calendar-weather>
+</div>

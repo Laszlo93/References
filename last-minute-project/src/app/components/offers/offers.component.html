@@ -1,1 +1,12 @@
-<p>offers works!</p>
+<div class="row col-md-8 m-auto mt-3">
+    <div *ngFor="let package of packages; let i = index;" class="col-md-4 my-3 d-flex align-items-stretch">
+        <div class="card">
+            <img style="height: 30%;" src="../../../assets/{{ package.city }}/01.jpg" class="card-img-top" alt="...">
+            <div class="card-body d-flex flex-column">
+                <h5 class="card-title">{{ package.name }}</h5>
+                <p class="card-text">{{ package.description }}</p>
+                <button (click)="goToPackageDetails(package.name)" class="btn btn-primary mt-auto align-self-start">Megnézem</button>
+            </div>
+        </div>
+    </div>
+</div>
