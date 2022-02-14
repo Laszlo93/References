@@ -1,1 +1,189 @@
-<p>offers works!</p>
+<!-- <div class="header container-fluid p-0 d-flex justify-content-center align-items-center">
+    <div class="row">
+        <div class="col">
+            <h1 class="text-white">Ide jöhetne majd valami jó kis süket duma címszavakban</h1>
+        </div>
+    </div>
+</div> -->
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col text-center">
+            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasScrolling">Keresés - szűrés</button>
+        </div>
+    </div>
+</div>
+
+<div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
+    id="offcanvasScrolling">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Keresés - szűrés</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <p>Kérem adjon meg keresési feltételeket a találatok szűkítéséhez.</p>
+        <div class="mb-3 d-flex justify-content-end">
+            <input (input)="searchInputChanged($event)" type="text" class="form-control" id="keywordInput"
+                placeholder="kulcsszó">
+            <button (click)="searchCity(inputValue)" class="btn btn-light border" [disabled]="canSubmit">OK</button>
+        </div>
+
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+                Aktív programok
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+            <label class="form-check-label" for="flexCheckChecked">
+                Wellness programok
+            </label>
+        </div>
+        <select class="form-select mt-3">
+            <option selected>Válasszon várost:</option>
+            <option *ngFor="let city of cities" [value]="city">{{city}}</option>
+        </select>
+    </div>
+</div>
+
+<div class="container d-flex flex-wrap justify-content-between align-items-center" style="padding-top: 8em;">
+    <div *ngFor="let package of selectedPackages ; let i = index" class="card-border shadow card m-3"
+        style="width: 18rem;">
+        <h3 class="text-center">{{package.city}}</h3>
+        <img src="/assets/{{package.city}}/01.jpg" class="card-img-top p-3" alt="...">
+        <div class="card-body text-center rounded-pill">
+            <p class="card-title">{{package.description | slice:0:233}}...</p>
+            <h6>Ár: {{package.price.toLocaleString("hu")}} Ft</h6>
+            <button class="btn btn-primary">Megnézem</button>
+        </div>
+    </div>
+</div>
+
+<!-- <main class="container col-md-7">
+    <div class="row">
+        <div class="col d-flex">
+            <h4>Rendezés: </h4>
+            <div class="dropdown mx-2">
+                <button class="btn btn-secondary dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    Szűrési feltételek
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="#">Ár</a></li>
+                    <li><a class="dropdown-item" href="#">Távolság</a></li>
+                    <li><a class="dropdown-item" href="#">Legjobbra értékelt</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row col-md-4 m-auto mt-4">
+        <nav aria-label="...">
+            <ul class="col-md-10 pagination m-auto">
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1">Previous</a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item active">
+                    <a class="page-link" href="#">2 <span class="sr-only"></span></a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">Next</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="row col-md-11 m-auto mt-3 justify-content-around">
+        <div class="col-md-4 my-3">
+            <div class="card">
+                <img src="https://hotelsilvanus.hu/application/files/1714/8645/1998/wellness-nap-kiskep.jpg"
+                    class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Visegrádi kiruccanás</h5>
+                    <p class="card-text">Élvezze a gyönyörű kilátást Magyarország egyik legnébszrűbb szállodájában
+                        és szerezzen családjának egy felejthetetlen élményt</p>
+                    <a href="details.html" class="btn btn-primary">Megnézem</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 my-3">
+            <div class="card">
+                <img src="https://hotelsilvanus.hu/application/files/1714/8645/1998/wellness-nap-kiskep.jpg"
+                    class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Visegrádi kiruccanás</h5>
+                    <p class="card-text">Élvezze a gyönyörű kilátást Magyarország egyik legnébszrűbb szállodájában
+                        és szerezzen családjának egy felejthetetlen élményt</p>
+                    <a href="#" class="btn btn-primary">Megnézem</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 my-3">
+            <div class="card">
+                <img src="https://hotelsilvanus.hu/application/files/1714/8645/1998/wellness-nap-kiskep.jpg"
+                    class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Visegrádi kiruccanás</h5>
+                    <p class="card-text">Élvezze a gyönyörű kilátást Magyarország egyik legnébszrűbb szállodájában
+                        és szerezzen családjának egy felejthetetlen élményt</p>
+                    <a href="details.html" class="btn btn-primary">Megnézem</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 my-3">
+            <div class="card">
+                <img src="https://hotelsilvanus.hu/application/files/1714/8645/1998/wellness-nap-kiskep.jpg"
+                    class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Visegrádi kiruccanás</h5>
+                    <p class="card-text">Élvezze a gyönyörű kilátást Magyarország egyik legnébszrűbb szállodájában
+                        és szerezzen családjának egy felejthetetlen élményt</p>
+                    <a href="details.html" class="btn btn-primary">Megnézem</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 my-3">
+            <div class="card">
+                <img src="https://hotelsilvanus.hu/application/files/1714/8645/1998/wellness-nap-kiskep.jpg"
+                    class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Visegrádi kiruccanás</h5>
+                    <p class="card-text">Élvezze a gyönyörű kilátást Magyarország egyik legnébszrűbb szállodájában
+                        és szerezzen családjának egy felejthetetlen élményt</p>
+                    <a href="details.html" class="btn btn-primary">Megnézem</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 my-3">
+            <div class="card">
+                <img src="https://hotelsilvanus.hu/application/files/1714/8645/1998/wellness-nap-kiskep.jpg"
+                    class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Visegrádi kiruccanás</h5>
+                    <p class="card-text">Élvezze a gyönyörű kilátást Magyarország egyik legnébszrűbb szállodájában
+                        és szerezzen családjának egy felejthetetlen élményt</p>
+                    <a href="details.html" class="btn btn-primary">Megnézem</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row col-md-4 m-auto mt-4">
+        <nav aria-label="...">
+            <ul class="col-md-10 pagination m-auto">
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1">Previous</a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item active">
+                    <a class="page-link" href="#">2 <span class="sr-only"></span></a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">Next</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</main> -->
