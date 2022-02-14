@@ -12,5 +12,6 @@ export interface PackageModel {
     travelCar: boolean,
     travelBus: boolean,
     travelTrain: boolean,
-    options: Array<ProgramModel>
+    options: Array<ProgramModel>,
+    quantity: number
 }

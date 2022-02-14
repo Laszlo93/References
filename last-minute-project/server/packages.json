@@ -48,7 +48,8 @@
                     "description": "Rövid leírás",
                     "activeActivity": false
                 }
-            ]
+            ],
+            "quantity": 1
         },
         {
             "id": 2,
@@ -93,7 +94,9 @@
                     "description": "Rövid leírás",
                     "activeActivity": false
                 }
-            ]
+            ],
+            "quantity": 2
+
         },
         {
             "id": 3,
@@ -143,7 +146,8 @@
                     "description": "Rövid leírás",
                     "activeActivity": false
                 }
-            ]
+            ],
+            "quantity": 2
         }
     ]
 }
