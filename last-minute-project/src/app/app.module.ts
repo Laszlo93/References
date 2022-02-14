@@ -8,6 +8,8 @@ import { OffersComponent } from './components/offers/offers.component';
 import { DetailsComponent } from './components/details/details.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
+import { CalendarWeatherComponent } from './components/details/calendar-weather/calendar-weather.component';
+import { TravelPlannerComponent } from './components/details/travel-planner/travel-planner.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { HomeComponent } from './components/home/home.component';
     HomeComponent,
     OffersComponent,
     DetailsComponent,
-    LoginComponent
+    LoginComponent,
+    CalendarWeatherComponent,
+    TravelPlannerComponent
   ],
   imports: [
     BrowserModule,
