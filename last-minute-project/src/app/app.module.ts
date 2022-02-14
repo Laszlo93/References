@@ -10,6 +10,8 @@ import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { CalendarWeatherComponent } from './components/details/calendar-weather/calendar-weather.component';
 import { TravelPlannerComponent } from './components/details/travel-planner/travel-planner.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { TravelPlannerComponent } from './components/details/travel-planner/trav
     DetailsComponent,
     LoginComponent,
     CalendarWeatherComponent,
-    TravelPlannerComponent
+    TravelPlannerComponent,
+    NavbarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
