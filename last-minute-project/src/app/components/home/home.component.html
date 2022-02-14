@@ -1,1 +1,37 @@
-<p>home works!</p>
+<div class="container-fluid">
+    <div class="row">
+        <img class="img-fluid"
+            src="https://timelinecovers.pro/facebook-cover/download/travel-the-world-facebook-cover.jpg" alt="">
+        <h6 class="text-gray">Ide jöhetne majd valami jó kis süket duma címszavakban</h6>
+    </div>
+</div>
+
+<main class="container-fluid text-center">
+    <div class="row col-md-7 m-auto mt-5">
+        <div class="col">
+            <h1>Kiemelt ajánlataink</h1>
+        </div>
+    </div>
+
+    <div class="container d-flex flex-wrap justify-content-between align-items-center" style="padding-top: 8em;">
+        <div *ngFor="let package of travelPackages ; let i = index" class="card-border shadow card m-3"
+            style="width: 18rem;">
+            <h3>{{package.city}}</h3>
+            <img src="/assets/{{package.city}}/01.jpg" class="card-img-top p-3" alt="...">
+            <div class="card-body text-center rounded-pill">
+                <p class="card-title">{{package.description | slice:0:233}}</p>
+                <h5>Ár: {{package.price}} Ft</h5>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col d-flex justify-content-end p-0">
+                <h3 class="my-3">
+                    <a class="forward-link" routerLink="offers">További ajánlataink -></a>
+                </h3>
+            </div>
+        </div>
+    </div>
+</main>
