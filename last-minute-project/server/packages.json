@@ -148,6 +148,304 @@
                 }
             ],
             "quantity": 2
+        },
+        {
+            "id": 4,
+            "name": "Töltődj fel Siófokon",
+            "description": "Eltöltenél pár napot pároddal kettesben vagy a családod lepnéd meg egy utazással? Vár téged a csodás Siófok, ahol legyen szó aktív kikapcsolódásról vagy a wellness nyújtotta pihenésről, garantáltad megtalálod, amit keresel. Az kirándulni vágyókat túrázással, vitorlázással és számos érdekes programmal várjuk. Ha a pihenésé a főszerep, akkor add át magad a wellness részleg által nyújtotta szolgáltatásoknak. Használd ki a Spa nyújtotta felüdülést és masszázs lehetősegeink egyikét.",
+            "hotelName": "Pumukli Hotel",
+            "meals": "Félpanzió",
+            "city": "Siófok",
+            "price": 70000,
+            "days": 3,
+            "travelCar": true,
+            "travelBus": true,
+            "travelTrain": false,
+            "options": [
+                {
+                    "name": "Túrázás",
+                    "description": "Rövid leírás",
+                    "activeActivity": true
+                },
+                {
+                    "name": "Kajak-kenu",
+                    "description": "Rövid leírás",
+                    "activeActivity": true
+                },
+                {
+                    "name": "Vitorlázás",
+                    "description": "Rövid leírás",
+                    "activeActivity": true
+                },
+                {
+                    "name": "Éjszakai túrázás",
+                    "description": "Rövid leírás",
+                    "activeActivity": true
+                },
+                {
+                    "name": "Svédmasszázs",
+                    "description": "Rövid leírás",
+                    "activeActivity": false
+                },
+                {
+                    "name": "Galerius Élményfürdő és Wellness Központ kedvezményes belépő a szálloda vendégeinek részére",
+                    "description": "Rövid leírás",
+                    "activeActivity": false
+                },
+                {
+                    "name": "Romantikus vacsora 2 fő részére",
+                    "description": "Rövid leírás",
+                    "activeActivity": false
+                }
+            ],
+            "quantity": 1
+        },
+        {
+            "id": 5,
+            "name": "A víz szerelmeseinek",
+            "description": "Eltöltenél pár napot pároddal kettesben vagy a családod lepnéd meg egy utazással? Vár téged a lenyűgöző Tihanyban, ahol legyen szó aktív kikapcsolódásról vagy a wellness nyújtotta pihenésről, garantáltad megtalálod, amit keresel. Az kirándulni vágyókat túrázással, vitorlázással és számos érdekes programmal várjuk. Ha a pihenésé a főszerep, akkor add át magad a wellness részleg által nyújtotta szolgáltatásoknak. Használd ki a Spa nyújtotta felüdülést és masszázs lehetősegeink egyikét.",
+            "hotelName": "Pumukli Hotel",
+            "meals": "Reggeli az árban",
+            "city": "Tihany",
+            "price": 56000,
+            "days": 2,
+            "travelCar": true,
+            "travelBus": true,
+            "travelTrain": false,
+            "options": [
+                {
+                    "name": "Kajak-kenu",
+                    "description": "Rövid leírás",
+                    "activeActivity": true
+                },
+                {
+                    "name": "Vitorlázás",
+                    "description": "Rövid leírás",
+                    "activeActivity": true
+                },
+                {
+                    "name": "Éjszakai horgászat",
+                    "description": "Rövid leírás",
+                    "activeActivity": true
+                },
+                {
+                    "name": "Svédmasszázs",
+                    "description": "Rövid leírás",
+                    "activeActivity": false
+                },
+                {
+                    "name": "Aqua Élményfürdő és Wellness Központ kedvezményes belépő a szálloda vendégeinek részére",
+                    "description": "Rövid leírás",
+                    "activeActivity": false
+                },
+                {
+                    "name": "Romantikus vacsora 2 fő részére",
+                    "description": "Rövid leírás",
+                    "activeActivity": false
+                }
+            ],
+            "quantity": 2
+
+        },
+        {
+            "id": 6,
+            "name": "Élménydömping Veszprémben",
+            "description": "Eltöltenél pár napot pároddal kettesben vagy a családod lepnéd meg egy utazással? Vár téged Veszprém, a királynék városa, ahol legyen szó aktív kikapcsolódásról vagy a wellness nyújtotta pihenésről, garantáltad megtalálod, amit keresel. Az aktív kikapcsolódás szerelmeseit óvárosi séta várja idegenvezetéssel, megismerkedhetnek a lovas sportok szépségeivel, de aki adrenalinra vágyik kipróbálhatja a bobozást is. Ha a pihenésé a főszerep, akkor add át magad a wellness részleg által nyújtotta szolgáltatásoknak. Használd ki a Spa nyújtotta felüdülést és masszázs lehetősegeink egyikét.",
+            "hotelName": "Kuckó Hotel",
+            "meals": "Félpanzió",
+            "city": "Veszprém",
+            "price": 95000,
+            "days": 3,
+            "travelCar": true,
+            "travelBus": true,
+            "travelTrain": false,
+            "options": [
+                {
+                    "name": "Golf a Balatonudvariban található Royal Balaton Golf és Yacht Clubban",
+                    "description": "Rövid leírás",
+                    "activeActivity": true
+                },
+                {
+                    "name": "Libegőzés Eplényben",
+                    "description": "Rövid leírás",
+                    "activeActivity": true
+                },
+                {
+                    "name": "Balatoni bob",
+                    "description": "Rövid leírás",
+                    "activeActivity": true
+                },
+                {
+                    "name": "Lovaglás a közeli Nemesvámoson",
+                    "description": "Rövid leírás",
+                    "activeActivity": true
+                },
+                {
+                    "name": "Svédmasszázs",
+                    "description": "Rövid leírás",
+                    "activeActivity": false
+                },
+                {
+                    "name": "Veszprémi Élményfürdő és Wellness Központ kedvezményes belépő a szálloda vendégeinek részére",
+                    "description": "Rövid leírás",
+                    "activeActivity": false
+                },
+                {
+                    "name": "Romantikus vacsora 2 fő részére",
+                    "description": "Rövid leírás",
+                    "activeActivity": false
+                }
+            ],
+            "quantity": 2
+        },
+        {
+            "id": 7,
+            "name": "Töltődj fel Siófokon",
+            "description": "Eltöltenél pár napot pároddal kettesben vagy a családod lepnéd meg egy utazással? Vár téged a csodás Siófok, ahol legyen szó aktív kikapcsolódásról vagy a wellness nyújtotta pihenésről, garantáltad megtalálod, amit keresel. Az kirándulni vágyókat túrázással, vitorlázással és számos érdekes programmal várjuk. Ha a pihenésé a főszerep, akkor add át magad a wellness részleg által nyújtotta szolgáltatásoknak. Használd ki a Spa nyújtotta felüdülést és masszázs lehetősegeink egyikét.",
+            "hotelName": "Pumukli Hotel",
+            "meals": "Félpanzió",
+            "city": "Siófok",
+            "price": 70000,
+            "days": 3,
+            "travelCar": true,
+            "travelBus": true,
+            "travelTrain": false,
+            "options": [
+                {
+                    "name": "Túrázás",
+                    "description": "Rövid leírás",
+                    "activeActivity": true
+                },
+                {
+                    "name": "Kajak-kenu",
+                    "description": "Rövid leírás",
+                    "activeActivity": true
+                },
+                {
+                    "name": "Vitorlázás",
+                    "description": "Rövid leírás",
+                    "activeActivity": true
+                },
+                {
+                    "name": "Éjszakai túrázás",
+                    "description": "Rövid leírás",
+                    "activeActivity": true
+                },
+                {
+                    "name": "Svédmasszázs",
+                    "description": "Rövid leírás",
+                    "activeActivity": false
+                },
+                {
+                    "name": "Galerius Élményfürdő és Wellness Központ kedvezményes belépő a szálloda vendégeinek részére",
+                    "description": "Rövid leírás",
+                    "activeActivity": false
+                },
+                {
+                    "name": "Romantikus vacsora 2 fő részére",
+                    "description": "Rövid leírás",
+                    "activeActivity": false
+                }
+            ],
+            "quantity": 1
+        },
+        {
+            "id": 8,
+            "name": "A víz szerelmeseinek",
+            "description": "Eltöltenél pár napot pároddal kettesben vagy a családod lepnéd meg egy utazással? Vár téged a lenyűgöző Tihanyban, ahol legyen szó aktív kikapcsolódásról vagy a wellness nyújtotta pihenésről, garantáltad megtalálod, amit keresel. Az kirándulni vágyókat túrázással, vitorlázással és számos érdekes programmal várjuk. Ha a pihenésé a főszerep, akkor add át magad a wellness részleg által nyújtotta szolgáltatásoknak. Használd ki a Spa nyújtotta felüdülést és masszázs lehetősegeink egyikét.",
+            "hotelName": "Pumukli Hotel",
+            "meals": "Reggeli az árban",
+            "city": "Tihany",
+            "price": 56000,
+            "days": 2,
+            "travelCar": true,
+            "travelBus": true,
+            "travelTrain": false,
+            "options": [
+                {
+                    "name": "Kajak-kenu",
+                    "description": "Rövid leírás",
+                    "activeActivity": true
+                },
+                {
+                    "name": "Vitorlázás",
+                    "description": "Rövid leírás",
+                    "activeActivity": true
+                },
+                {
+                    "name": "Éjszakai horgászat",
+                    "description": "Rövid leírás",
+                    "activeActivity": true
+                },
+                {
+                    "name": "Svédmasszázs",
+                    "description": "Rövid leírás",
+                    "activeActivity": false
+                },
+                {
+                    "name": "Aqua Élményfürdő és Wellness Központ kedvezményes belépő a szálloda vendégeinek részére",
+                    "description": "Rövid leírás",
+                    "activeActivity": false
+                },
+                {
+                    "name": "Romantikus vacsora 2 fő részére",
+                    "description": "Rövid leírás",
+                    "activeActivity": false
+                }
+            ],
+            "quantity": 2
+
+        },
+        {
+            "id": 9,
+            "name": "Élménydömping Veszprémben",
+            "description": "Eltöltenél pár napot pároddal kettesben vagy a családod lepnéd meg egy utazással? Vár téged Veszprém, a királynék városa, ahol legyen szó aktív kikapcsolódásról vagy a wellness nyújtotta pihenésről, garantáltad megtalálod, amit keresel. Az aktív kikapcsolódás szerelmeseit óvárosi séta várja idegenvezetéssel, megismerkedhetnek a lovas sportok szépségeivel, de aki adrenalinra vágyik kipróbálhatja a bobozást is. Ha a pihenésé a főszerep, akkor add át magad a wellness részleg által nyújtotta szolgáltatásoknak. Használd ki a Spa nyújtotta felüdülést és masszázs lehetősegeink egyikét.",
+            "hotelName": "Kuckó Hotel",
+            "meals": "Félpanzió",
+            "city": "Veszprém",
+            "price": 95000,
+            "days": 3,
+            "travelCar": true,
+            "travelBus": true,
+            "travelTrain": false,
+            "options": [
+                {
+                    "name": "Golf a Balatonudvariban található Royal Balaton Golf és Yacht Clubban",
+                    "description": "Rövid leírás",
+                    "activeActivity": true
+                },
+                {
+                    "name": "Libegőzés Eplényben",
+                    "description": "Rövid leírás",
+                    "activeActivity": true
+                },
+                {
+                    "name": "Balatoni bob",
+                    "description": "Rövid leírás",
+                    "activeActivity": true
+                },
+                {
+                    "name": "Lovaglás a közeli Nemesvámoson",
+                    "description": "Rövid leírás",
+                    "activeActivity": true
+                },
+                {
+                    "name": "Svédmasszázs",
+                    "description": "Rövid leírás",
+                    "activeActivity": false
+                },
+                {
+                    "name": "Veszprémi Élményfürdő és Wellness Központ kedvezményes belépő a szálloda vendégeinek részére",
+                    "description": "Rövid leírás",
+                    "activeActivity": false
+                },
+                {
+                    "name": "Romantikus vacsora 2 fő részére",
+                    "description": "Rövid leírás",
+                    "activeActivity": false
+                }
+            ],
+            "quantity": 2
         }
     ]
 }

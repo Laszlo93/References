@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PackageModel } from 'src/app/models/package.model';
+import { ProgramModel } from 'src/app/models/program.model';
 import { PackageService } from 'src/app/services/package.service'
 
 @Component({
@@ -10,10 +11,13 @@ import { PackageService } from 'src/app/services/package.service'
 export class OffersComponent implements OnInit {
 
   public travelPackages: PackageModel[] = [];
+  public travelPrograms: ProgramModel[] = [];
   public selectedPackages: PackageModel[] = [];
   public inputValue: string = "";
   public canSubmit: boolean = true;
   public cities: string[] = [];
+  public maxPrice: number = 500000;
+  public price: number = 100000;
 
   constructor(private packageService: PackageService) { }
 
@@ -32,13 +36,14 @@ export class OffersComponent implements OnInit {
 
   }
 
-  public searchInputChanged(event: any): void{
-    this.inputValue = event.target.value;
-    this.canSubmit = this.inputValue === "";
+  public onChangeCityInput(event: any): void {
+    let city = event.target.value;
+    this.selectedPackages = this.travelPackages.filter(data => data.city.includes(city));
   }
 
-  public searchCity(city: string): void {
-    this.selectedPackages = this.travelPackages.filter(data => data.city.includes(city));
+  public onChangePriceInput(event: any): void {
+    this.price = event.target.value;
+    this.selectedPackages = this.travelPackages.filter(data => data.price <= this.price);
   }
 
 }
