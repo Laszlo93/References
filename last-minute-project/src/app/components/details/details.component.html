@@ -1,3 +1,4 @@
 <div *ngIf="packageDetails">
     <app-calendar-weather [packageDetails]="packageDetails"></app-calendar-weather>
 </div>
+<app-travel-planner [destination]="packageDetails?.city"></app-travel-planner>

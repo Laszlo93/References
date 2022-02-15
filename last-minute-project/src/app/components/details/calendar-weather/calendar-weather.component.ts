@@ -10,7 +10,7 @@ import { WeatherService } from 'src/app/services/weather.service';
 })
 export class CalendarWeatherComponent implements OnInit {
 
-  @Input() public packageDetails?: any;
+  @Input() public packageDetails?: PackageModel;
 
   days: Array<any> = [];
 
@@ -18,15 +18,13 @@ export class CalendarWeatherComponent implements OnInit {
   constructor(private weatherService: WeatherService) { }
 
   ngOnInit(): void {
-    if (this.packageDetails) {
-      this.weatherService.getChoosenCityCoords(this.packageDetails.city).pipe(
-        switchMap((coords: any) => this.weatherService.getWeatherForecast(coords[0].lon, coords[0].lat))
-      ).subscribe((data: any) => {
-        this.days = data.daily;
-      })
-    } else {
-      console.log("Hiba történt! " + this.packageDetails);
-    }
+    this.packageDetails 
+      ? this.weatherService.getChoosenCityCoords(this.packageDetails.city).pipe(
+          switchMap((coords: any) => this.weatherService.getWeatherForecast(coords[0].lon, coords[0].lat))
+        ).subscribe((data: any) => {
+          this.days = data.daily;
+        })
+      : 0;
     console.log(this.packageDetails);
   }
 
