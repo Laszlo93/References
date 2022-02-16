@@ -1,1 +1,44 @@
-<p>offers works!</p>
+<!-- Offers/Ajánlatok komponens -->
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-3">
+            <label for="maxPricePackage" class="form-label">Maximum ár: {{price | number}} Ft</label>
+            <input (input)="onChangePriceInput($event)" type="range" class="form-range" min="0" [max]="maxPrice" step="10000" [value]="price" id="maxPricePackage">
+ 
+            <label for="smart" class="form-label">Keresés város alapján:</label>
+
+            <select (change)="onChangeCityInput($event)" class="form-select">
+                <option disabled hidden selected>Válasszon várost:</option>
+                <option value="" >mindegyik</option>
+                <option *ngFor="let city of cities" [value]="city">{{city}}</option>
+            </select>
+        </div>
+    </div>
+</div>
+
+<div class="container d-flex flex-wrap justify-content-between align-items-center" style="padding-top: 5em;">
+    <div *ngFor="let package of selectedPackages ; let i = index" class="card-border shadow card m-3"
+        style="width: 18rem;">
+        <h3 class="text-center">{{package.city}}</h3>
+        <img src="/assets/{{package.city}}/01.jpg" class="card-img-top p-3" alt="...">
+        <div class="card-body text-center rounded-pill">
+            <p class="card-title">{{package.description | slice:0:200}}...</p>
+            <h6>Ár: {{package.price.toLocaleString("hu")}} Ft</h6>
+            <button (click)="goToPackageDetails(package.name)" class="btn btn-primary">Megnézem</button>
+        </div>
+    </div>
+</div>
+
+<!-- <div class="row col-md-8 m-auto mt-3">
+    <div *ngFor="let package of packages; let i = index;" class="col-md-4 my-3 d-flex align-items-stretch">
+        <div class="card">
+            <img style="height: 30%;" src="../../../assets/{{ package.city }}/01.jpg" class="card-img-top" alt="...">
+            <div class="card-body d-flex flex-column">
+                <h5 class="card-title">{{ package.name }}</h5>
+                <p class="card-text">{{ package.description }}</p>
+                <button (click)="goToPackageDetails(package.name)" class="btn btn-primary mt-auto align-self-start">Megnézem</button>
+            </div>
+        </div>
+    </div>
+</div> -->
