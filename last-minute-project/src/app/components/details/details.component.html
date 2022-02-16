@@ -1,4 +1,28 @@
 <div *ngIf="packageDetails">
     <app-calendar-weather [packageDetails]="packageDetails"></app-calendar-weather>
 </div>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8 m-auto">
+            <div class="card mb-3">
+                <div class="row g-0 h-100">
+                    <div class="col-md-7">
+                        <img src="../../../assets/Hévíz/01.jpg" class="img-fluid rounded-start" alt="...">
+                    </div>
+                    <div class="col-md-5">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ packageDetails?.name }}</h5>
+                            <p>{{ packageDetails?.city }}</p>
+                            <p>{{ packageDetails?.hotelName }}</p>
+                            <p>{{ packageDetails?.meals }}</p>
+                            <p>{{ packageDetails?.days }}</p>
+                            <p>{{ packageDetails?.price | currency:"HUF":"code"}}</p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <app-travel-planner [destination]="packageDetails?.city"></app-travel-planner>
