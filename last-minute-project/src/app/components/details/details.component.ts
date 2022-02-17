@@ -13,6 +13,7 @@ export class DetailsComponent implements OnInit {
 
   packageName: any;
   packageDetails?: PackageModel;
+  activePrograms: boolean = true;
 
   constructor(private activateRoute: ActivatedRoute, private packageService: PackageService) { }
 
@@ -21,11 +22,11 @@ export class DetailsComponent implements OnInit {
       this.packageName = param.get("packageName")
     })
 
-    console.log("Ez kellene az első legyen");
-
     this.packageService.getPackage(this.packageName).subscribe(choosenPackage => {
       this.packageDetails = choosenPackage[0];
       console.log(this.packageDetails);
     });
   }
+
+
 }

@@ -1,23 +1,30 @@
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { from, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GoogleDirectionService {
-  lat: number = 47.497913;
-  lng: number = 19.040236;
 
-  constructor() { }
+  directionsService = new google.maps.DirectionsService();
 
-  public getGeolocation() {
-    navigator.geolocation.getCurrentPosition(
-      data => {
-        // console.log(data);
-        this.lat = data.coords.latitude;
-        this.lng = data.coords.longitude;
-      }, 
-      e => console.log(e)
-    );
-    return {latitude: this.lat, longitude: this.lng}
+  constructor(private http: HttpClient) { }
+
+  service = new google.maps.DistanceMatrixService();
+
+  public getRoute(origin: string, destination: string): Observable<google.maps.DirectionsResult> {
+    return from(this.directionsService
+            .route(
+              {
+                origin: origin,
+                destination: destination,
+                travelMode: google.maps.TravelMode.DRIVING,
+                transitOptions: {
+                  modes: [google.maps.TransitMode.TRAIN],
+                  routingPreference: google.maps.TransitRoutePreference.FEWER_TRANSFERS
+                }
+              }
+            ));
   }
 }

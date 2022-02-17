@@ -1,8 +1,8 @@
 <div class="container-fluid mt-3">
     <div class="row col-md-5 m-auto d-flex justify-content-around">
         <div *ngFor="let day of days; let i = index" class="col p-0 m-1" id="divWeatherMain">
-            <a style="text-decoration: none;" href="">
-                <div class="text-center date">
+            <div style="text-decoration: none;" href="">
+                <div (click)="getDate1(day.dt)" class="text-center date">
                     <div>
                         {{ getDate(day.dt) | date:"MMM d"}}
                     </div>
@@ -10,7 +10,7 @@
                         {{ getDate(day.dt) | date:"EE":"hu" }}
                     </div>
                 </div>
-            </a>
+            </div>
             <hr class="m-0">
             <div class="weather">
                 <div *ngIf="true" class="weatherWidgetRow d-flex">

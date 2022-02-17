@@ -1,4 +1,89 @@
-<div *ngIf="packageDetails">
-    <app-calendar-weather [packageDetails]="packageDetails"></app-calendar-weather>
+<div class="container-fluid mt-5">
+    <div class="row text-center">
+        <div class="col">
+            <h1>{{ packageDetails?.name }}</h1>
+        </div>
+    </div>
+    <div class="row" *ngIf="packageDetails">
+        <div class="col">
+            <app-calendar-weather [packageDetails]="packageDetails"></app-calendar-weather>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-6 m-auto">
+            <div class="card mb-3">
+                <div class="row g-0 h-100">
+                    <div class="col-md-7">
+                        
+                    </div>
+                    <div class="col-md-5">
+                        <div class="card-body p-0 h-100">
+                            <div class="container-fluid d-flex align-items-strech h-100">
+                                <table class="table table-primary table-striped h-100">
+                                    <tbody>
+                                        <tr>
+                                            <td>Város</td>
+                                            <td class="text-end">{{ packageDetails?.city }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Szállás</td>
+                                            <td class="text-end">{{ packageDetails?.hotelName }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ellátás</td>
+                                            <td class="text-end">{{ packageDetails?.meals }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Időtartam</td>
+                                            <td class="text-end">{{ packageDetails?.days }} nap</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ár</td>
+                                            <td class="text-end">{{ packageDetails?.price }} Ft/fő</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row text-center">
+        <div class="col-md-5 m-auto">
+            <p>{{ packageDetails?.description }}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 m-auto">
+            <h3>Programjaink</h3>
+            <table class="table table-primary table-striped h-100">
+                <tbody>
+                    <tr class="text-center">
+                        <th colspan="2">
+                            <button (click)="activePrograms=true" class="btn btn-success m-2">Mozognék kicsit</button>
+                            <button (click)="activePrograms=false" class="btn btn-danger m-2">Csak a lazulás</button>
+                        </th>
+                    </tr>
+                    <tr *ngFor="let program of packageDetails?.options">
+                        <td *ngIf="program.activeActivity && activePrograms">
+                            <h6>{{ program.name }}</h6>
+                            <p>{{ program.description }}</p>
+                        </td>
+                        <td *ngIf="!program.activeActivity && !activePrograms">
+                            <h6>{{ program.name }}</h6>
+                            <p>{{ program.description }}</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 m-auto">
+            <app-travel-planner [destination]="packageDetails?.city"></app-travel-planner>
+        </div>
+    </div>
 </div>
-<app-travel-planner [destination]="packageDetails?.city"></app-travel-planner>
