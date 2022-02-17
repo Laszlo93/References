@@ -1,10 +1,10 @@
 <!-- Offers/Ajánlatok komponens -->
 
-<div class="container mt-5">
+<div class="container mt-5 bg-primary">
     <div class="row">
         <div class="col-3">
             <label for="maxPricePackage" class="form-label">Maximum ár: {{price | number}} Ft</label>
-            <input (input)="onChangePriceInput($event)" type="range" class="form-range" min="0" [max]="maxPrice" step="10000" [value]="price" id="maxPricePackage">
+            <input (input)="onChangePriceInput($event)" type="range" class="custom-range" min="0" [max]="maxPrice" step="10000" [value]="price" id="maxPricePackage">
  
             <label for="smart" class="form-label">Keresés város alapján:</label>
 
