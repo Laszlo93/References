@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { filter } from 'rxjs';
 import { PackageModel } from 'src/app/models/package.model';
@@ -11,9 +11,14 @@ import { PackageService } from 'src/app/services/package.service';
 })
 export class DetailsComponent implements OnInit {
 
-  packageName: any;
-  packageDetails?: PackageModel;
-  activePrograms: boolean = true;
+  public packageName: any;
+  public packageDetails?: PackageModel;
+  public activePrograms: boolean = true;
+  public numberOfPersons: number = 2;
+  public fullPrice: number = 0;
+  public arriveDate?: any;
+  public leaveDate?: any;
+
 
   constructor(private activateRoute: ActivatedRoute, private packageService: PackageService) { }
 
@@ -24,9 +29,29 @@ export class DetailsComponent implements OnInit {
 
     this.packageService.getPackage(this.packageName).subscribe(choosenPackage => {
       this.packageDetails = choosenPackage[0];
-      console.log(this.packageDetails);
+      this.calculateFullPrice();
     });
   }
 
+  public setDates(date: any) {
+    this.arriveDate = date.arrive;
+    this.leaveDate = date.leave;
+    console.log(this.arriveDate, this.leaveDate);
+  }
+
+  public calculateFullPrice() {
+    this.packageDetails ? this.fullPrice = this.numberOfPersons * this.packageDetails.price : 0;
+  }
+
+  public increaseNumberOfPersons(): void {
+    this.numberOfPersons++;
+    this.calculateFullPrice();
+  }
+
+  public decreaseNumberOfPersons(): void {
+    this.numberOfPersons--;
+    this.calculateFullPrice();
+  }
+  
 
 }

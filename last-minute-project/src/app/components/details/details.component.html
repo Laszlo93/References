@@ -6,7 +6,7 @@
     </div>
     <div class="row" *ngIf="packageDetails">
         <div class="col-lg-6 m-auto">
-            <app-calendar-weather [packageDetails]="packageDetails"></app-calendar-weather>
+            <app-calendar-weather (clickEvent)="setDates($event)" [packageDetails]="packageDetails"></app-calendar-weather>
         </div>
     </div>
     <div class="row mt-3">
@@ -34,32 +34,47 @@
                     </div>
                     <div class="col-md-5">
                         <div class="card-body p-0 h-100">
-                            <div class="container-fluid d-flex align-items-strech h-100">
-                                <table class="table table-primary table-striped h-100">
-                                    <tbody>
-                                        <tr>
-                                            <td>Város</td>
-                                            <td class="text-end">{{ packageDetails?.city }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Szállás</td>
-                                            <td class="text-end">{{ packageDetails?.hotelName }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Ellátás</td>
-                                            <td class="text-end">{{ packageDetails?.meals }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Időtartam</td>
-                                            <td class="text-end">{{ packageDetails?.days }} nap</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Ár</td>
-                                            <td class="text-end">{{ packageDetails?.price }} Ft/fő</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                            <table class="table table-primary table-striped h-100">
+                                <tbody>
+                                    <tr>
+                                        <td>Választott idősszak</td>
+                                        <td class="text-end">{{ arriveDate | date:"MMM d" }} - {{ leaveDate | date:"MMM d" }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Utazók száma</td>
+                                        <td class="d-flex h-100 justify-content-end">
+                                            <button (click)="decreaseNumberOfPersons()" style="width: 40px;" type="submit" class="btn btn-danger mx-2">-</button>
+                                            <input style="width: 40px;" type="text" value="{{ numberOfPersons }}" class="form-control mx-2 p-1 text-center" id="exampleInputPassword1">
+                                            <button (click)="increaseNumberOfPersons()" style="width: 40px;" type="submit" class="btn btn-success mx-2">+</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Város</td>
+                                        <td class="text-end">{{ packageDetails?.city }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Szállás</td>
+                                        <td class="text-end">{{ packageDetails?.hotelName }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ellátás</td>
+                                        <td class="text-end">{{ packageDetails?.meals }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Időtartam</td>
+                                        <td class="text-end">{{ packageDetails?.days }} nap</td>
+                                    </tr>
+                                    <tr *ngIf="fullPrice">
+                                        <td>Ár</td>
+                                        <td class="text-end">{{ fullPrice }} Ft</td>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="2" class="text-end p-2">
+                                            <button class="btn btn-success h-100 px-4">Foglalás</button>
+                                        </th>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                     

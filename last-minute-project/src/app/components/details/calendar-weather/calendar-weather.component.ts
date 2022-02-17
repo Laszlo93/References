@@ -1,5 +1,5 @@
-import { Component, ComponentFactoryResolver, Input, OnInit } from '@angular/core';
-import { switchMap } from 'rxjs';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { first, last, switchMap } from 'rxjs';
 import { PackageModel } from 'src/app/models/package.model';
 import { LocationService } from 'src/app/services/location.service';
 import { WeatherService } from 'src/app/services/weather.service';
@@ -12,8 +12,15 @@ import { WeatherService } from 'src/app/services/weather.service';
 export class CalendarWeatherComponent implements OnInit {
 
   @Input() public packageDetails?: PackageModel;
+  @Output() clickEvent = new EventEmitter();
 
   days: Array<any> = [];
+  public selectedDateBgColor: string = "none";
+  public selectedIndex?: number;
+  public arriveDate?: any;
+  public leaveDate?: any;
+
+
 
 
   constructor(private weatherService: WeatherService, private locationService: LocationService) { }
@@ -33,9 +40,20 @@ export class CalendarWeatherComponent implements OnInit {
     return new Date(date * 1000);
   }
 
-  public getDate1(date: number) {
-    const newDate = new Date(date * 1000);
-    console.log(newDate.getDay());
+  public getDate1(date: number, index: number) {
+    this.selectedIndex = index;
+    if (this.packageDetails) {
+      this.arriveDate = new Date(date * 1000);
+      this.leaveDate = new Date(this.arriveDate);
+      this.leaveDate.setDate(this.arriveDate.getDate() + this.packageDetails?.days);
+    }
+    this.clickEvent.emit({arrive: this.arriveDate, leave: this.leaveDate});
   }
 
+  public setClass(i: number) {
+    if(this.selectedIndex != undefined) {
+      return i >= this.selectedIndex && i <= this.selectedIndex + 2 ? "selected-date" : "non-selected-date";
+    }
+    return "non-selected-date";
+  }
 }

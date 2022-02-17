@@ -30,6 +30,14 @@
     width: fit-content;
 }
 
+.selected-date {
+    background-color: red;
+}
+
+.non-selected-date {
+    background-color: white;
+}
+
 @keyframes cloudMovement{
     from{margin-left: -55px;}
     to{margin-left: 65px;}

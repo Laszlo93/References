@@ -2,7 +2,7 @@
     <div class="row m-auto d-flex justify-content-around">
         <div *ngFor="let day of days; let i = index" class="col p-0 m-1" id="divWeatherMain">
             <div style="text-decoration: none;" href="">
-                <div (click)="getDate1(day.dt)" class="text-center date">
+                <div [ngClass]="setClass(i)" (click)="getDate1(day.dt, i)" class="text-center date">
                     <div>
                         {{ getDate(day.dt) | date:"MMM d"}}
                     </div>
