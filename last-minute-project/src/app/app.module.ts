@@ -14,7 +14,7 @@ import { CalendarWeatherComponent } from './components/details/calendar-weather/
 import { TravelPlannerComponent } from './components/details/travel-planner/travel-planner.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -34,7 +34,7 @@ import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
     HttpClientModule,
     GoogleMapsModule,
     FormsModule,
-    NgbCarouselModule
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -16,37 +16,44 @@
                 {
                     "name": "Túrázás",
                     "description": "Rövid leírás",
-                    "activeActivity": true
+                    "activeActivity": true,
+                    "price": 3000
                 },
                 {
                     "name": "Kajak-kenu",
                     "description": "Rövid leírás",
-                    "activeActivity": true
+                    "activeActivity": true,
+                    "price": 3000
                 },
                 {
                     "name": "Vitorlázás",
                     "description": "Rövid leírás",
-                    "activeActivity": true
+                    "activeActivity": true,
+                    "price": 3000
                 },
                 {
                     "name": "Éjszakai túrázás",
                     "description": "Rövid leírás",
-                    "activeActivity": true
+                    "activeActivity": true,
+                    "price": 3000
                 },
                 {
                     "name": "Svédmasszázs",
                     "description": "Rövid leírás",
-                    "activeActivity": false
+                    "activeActivity": false,
+                    "price": 4000
                 },
                 {
                     "name": "Galerius Élményfürdő és Wellness Központ kedvezményes belépő a szálloda vendégeinek részére",
                     "description": "Rövid leírás",
-                    "activeActivity": false
+                    "activeActivity": false,
+                    "price": 4000
                 },
                 {
                     "name": "Romantikus vacsora 2 fő részére",
                     "description": "Rövid leírás",
-                    "activeActivity": false
+                    "activeActivity": false,
+                    "price": 4000
                 }
             ],
             "quantity": 1
@@ -67,32 +74,38 @@
                 {
                     "name": "Kajak-kenu",
                     "description": "Rövid leírás",
-                    "activeActivity": true
+                    "activeActivity": true,
+                    "price": 3000
                 },
                 {
                     "name": "Vitorlázás",
                     "description": "Rövid leírás",
-                    "activeActivity": true
+                    "activeActivity": true,
+                    "price": 3000
                 },
                 {
                     "name": "Éjszakai horgászat",
                     "description": "Rövid leírás",
-                    "activeActivity": true
+                    "activeActivity": true,
+                    "price": 3000
                 },
                 {
                     "name": "Svédmasszázs",
                     "description": "Rövid leírás",
-                    "activeActivity": false
+                    "activeActivity": false,
+                    "price": 4000
                 },
                 {
                     "name": "Aqua Élményfürdő és Wellness Központ kedvezményes belépő a szálloda vendégeinek részére",
                     "description": "Rövid leírás",
-                    "activeActivity": false
+                    "activeActivity": false,
+                    "price": 4000
                 },
                 {
                     "name": "Romantikus vacsora 2 fő részére",
                     "description": "Rövid leírás",
-                    "activeActivity": false
+                    "activeActivity": false,
+                    "price": 4000
                 }
             ],
             "quantity": 2
@@ -114,37 +127,44 @@
                 {
                     "name": "Golf a Balatonudvariban található Royal Balaton Golf és Yacht Clubban",
                     "description": "Rövid leírás",
-                    "activeActivity": true
+                    "activeActivity": true,
+                    "price": 3000
                 },
                 {
                     "name": "Libegőzés Eplényben",
                     "description": "Rövid leírás",
-                    "activeActivity": true
+                    "activeActivity": true,
+                    "price": 3000
                 },
                 {
                     "name": "Balatoni bob",
                     "description": "Rövid leírás",
-                    "activeActivity": true
+                    "activeActivity": true,
+                    "price": 3000
                 },
                 {
                     "name": "Lovaglás a közeli Nemesvámoson",
                     "description": "Rövid leírás",
-                    "activeActivity": true
+                    "activeActivity": true,
+                    "price": 3000
                 },
                 {
                     "name": "Svédmasszázs",
                     "description": "Rövid leírás",
-                    "activeActivity": false
+                    "activeActivity": false,
+                    "price": 4000
                 },
                 {
                     "name": "Veszprémi Élményfürdő és Wellness Központ kedvezményes belépő a szálloda vendégeinek részére",
                     "description": "Rövid leírás",
-                    "activeActivity": false
+                    "activeActivity": false,
+                    "price": 4000
                 },
                 {
                     "name": "Romantikus vacsora 2 fő részére",
                     "description": "Rövid leírás",
-                    "activeActivity": false
+                    "activeActivity": false,
+                    "price": 4000
                 }
             ],
             "quantity": 2

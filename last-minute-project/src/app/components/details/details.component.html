@@ -10,10 +10,10 @@
         </div>
     </div>
     <div class="row mt-3">
-        <div class="col-md-10 col-lg-6 m-auto">
+        <div class="col-md-9 col-lg-6 m-auto">
             <div class="card mb-3">
                 <div class="row g-0 h-100">
-                    <div class="col-md-7">
+                    <div class="col-lg-7">
                         <ngb-carousel>
                             <ng-template ngbSlide>
                                 <div>
@@ -32,16 +32,23 @@
                             </ng-template>
                         </ngb-carousel>
                     </div>
-                    <div class="col-md-5">
+                    <div *ngIf="packageDetails" class="col-lg-5">
                         <div class="card-body p-0 h-100">
                             <table class="table table-primary table-striped h-100">
                                 <tbody>
                                     <tr>
-                                        <td>Választott idősszak</td>
-                                        <td class="text-end">{{ arriveDate | date:"MMM d" }} - {{ leaveDate | date:"MMM d" }}</td>
+                                        <td class="d-flex align-items-center h-100">Választott idősszak</td>
+                                        <td class="text-end">
+                                            <div>
+                                                {{ packageDetails.days }} nap/{{ packageDetails.days - 1 }} éj
+                                            </div>
+                                            <div *ngIf="arriveDate">
+                                                <small>{{ arriveDate | date:"MMM d" }} - {{ leaveDate | date:"MMM d" }}</small>
+                                            </div>
+                                        </td>
                                     </tr>
                                     <tr>
-                                        <td>Utazók száma</td>
+                                        <td class="pt-3">Utazók száma</td>
                                         <td class="d-flex h-100 justify-content-end">
                                             <button (click)="decreaseNumberOfPersons()" style="width: 40px;" type="submit" class="btn btn-danger mx-2">-</button>
                                             <input style="width: 40px;" type="text" value="{{ numberOfPersons }}" class="form-control mx-2 p-1 text-center" id="exampleInputPassword1">
@@ -59,10 +66,6 @@
                                     <tr>
                                         <td>Ellátás</td>
                                         <td class="text-end">{{ packageDetails?.meals }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Időtartam</td>
-                                        <td class="text-end">{{ packageDetails?.days }} nap</td>
                                     </tr>
                                     <tr *ngIf="fullPrice">
                                         <td>Ár</td>
@@ -83,12 +86,12 @@
         </div>
     </div>
     <div class="row text-center">
-        <div class="col-md-8 col-lg-5 m-auto">
+        <div class="col-md-9 col-lg-5 m-auto">
             <p>{{ packageDetails?.description }}</p>
         </div>
     </div>
     <div class="row">
-        <div class="col-md-10 col-lg-6 m-auto">
+        <div class="col-md-8 col-lg-5 m-auto">
             <h3>Programjaink</h3>
             <table class="table table-primary table-striped h-100">
                 <tbody>
@@ -99,22 +102,42 @@
                         </th>
                     </tr>
                     <tr *ngFor="let program of packageDetails?.options">
-                        <td *ngIf="program.activeActivity && activePrograms">
-                            <h6>{{ program.name }}</h6>
-                            <p>{{ program.description }}</p>
+                        <td *ngIf="program.activeActivity && activePrograms" class="py-3">
+                            <div class="form-check form-switch">
+                                    <input (change)="checkCheckbox($event, program)" class="form-check-input mt-2" type="checkbox" id="" checked=>
+                                    <label class="form-check-label w-100" for="flexSwitchCheckChecked">
+                                        <div type="button" class=" ms-2" placement="top"
+                                            ngbPopover="{{ program.description }}" popoverTitle="{{ program.name }}">
+                                            {{ program.name }}
+                                        </div>
+                                    </label>
+                            </div>
                         </td>
-                        <td *ngIf="!program.activeActivity && !activePrograms">
-                            <h6>{{ program.name }}</h6>
-                            <p>{{ program.description }}</p>
+                        <td *ngIf="!program.activeActivity && !activePrograms" class="py-3">
+                            <div class="form-check form-switch">
+                                    <input (change)="checkCheckbox($event, program)" class="form-check-input mt-2" type="checkbox" id="" checked>
+                                    <label class="form-check-label w-100" for="flexSwitchCheckChecked">
+                                        <div type="button" class=" ms-2" placement="top"
+                                            ngbPopover="{{ program.description }}" popoverTitle="{{ program.name }}">
+                                            {{ program.name }}
+                                        </div>
+                                    </label>
+                            </div>
+                        </td>
+                        <td *ngIf="program.activeActivity && activePrograms" class="text-end h-100 d-flex align-items-center">
+                            {{ program.price }}/fő
+                        </td>
+                        <td *ngIf="!program.activeActivity && !activePrograms" class="text-end h-100 d-flex align-items-center">
+                            {{ program.price }}/fő
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
-    <!-- <div class="row">
-        <div class="col-md-6 m-auto">
+    <div class="row">
+        <div class="col-md-8 m-auto">
             <app-travel-planner [destination]="packageDetails?.city"></app-travel-planner>
         </div>
-    </div> -->
+    </div>
 </div>

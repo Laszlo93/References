@@ -1,15 +1,15 @@
 <div class="card mb-3">
     <div class="row g-0 h-100">
-        <div class="col-md-5">
+        <div class="col-lg-5">
             <div class="card-body text-center">
                 <h5 class="card-title">Útvonal és költségkalkulátor</h5>
                 <div class="row d-flex justify-content-around mt-4 m-auto">
-                    <div class="col-md-8">
+                    <div class="col-lg-8">
                         <input [(ngModel)]="origin" type="email" class="form-control"
                             id="exampleInputEmail1" value="{{ origin }}" aria-describedby="emailHelp"
                             placeholder="Indulás helye...">
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-lg-4">
                         <button (click)="initMap()" class="btn btn-success" type="button">Számol</button>
                     </div>
                 </div>
@@ -44,7 +44,7 @@
                 <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
             </div>
         </div>
-        <div class="col-md-7">
+        <div class="col-lg-7">
             <div #map class=" rounded-end" id="map"></div>
             <!-- <img src="..." class="img-fluid rounded-start" alt="..."> -->
         </div>

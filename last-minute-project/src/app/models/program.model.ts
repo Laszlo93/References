@@ -1,5 +1,6 @@
 export interface ProgramModel {
     name: string,
     description: string,
-    activeActivity: true
+    activeActivity: true,
+    price: number
 }
