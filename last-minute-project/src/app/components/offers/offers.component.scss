@@ -1,15 +1,21 @@
-.imgBox { /* now a container for the image */
-    display: inline-block; /* shrink wrap to image */
-    overflow: hidden; /* hide the excess */
-  }
-  .imgBox img {
-    display: block; /* no whitespace */
-    transition: .5s ease-in-out;
-  }
-  .imgBox:hover img {
-    transform: scale(1.1);
-  }
+.offercard:hover {
+    cursor: pointer;
+    animation: pulse;
+    animation-duration: 2s;
+}
 
-  .slider.slider-horizontal{
-    width:400px; /* sample value - set it as you like*/
-  }
+.btn {
+    background-color: #fe7443;
+}
+
+input[type="range" i] {
+    &::-webkit-slider-thumb {
+    background: #FE7443 !important;
+    }
+    &::-moz-range-thumb {
+    background: #FE7443 !important;
+    }
+    &::-ms-thumb {
+    background: #FE7443 !important;
+    }
+}
