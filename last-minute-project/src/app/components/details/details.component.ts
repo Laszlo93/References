@@ -1,6 +1,6 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { filter } from 'rxjs';
+import { BookedDate } from 'src/app/models/booked-date.model';
 import { PackageModel } from 'src/app/models/package.model';
 import { PackageService } from 'src/app/services/package.service';
 
@@ -16,8 +16,8 @@ export class DetailsComponent implements OnInit {
   public activePrograms: boolean = true;
   public numberOfPersons: number = 2;
   public fullPrice: number = 0;
-  public arriveDate?: any;
-  public leaveDate?: any;
+  public arriveDate?: Date;
+  public leaveDate?: Date;
 
 
   constructor(private activateRoute: ActivatedRoute, private packageService: PackageService) { }
@@ -33,10 +33,9 @@ export class DetailsComponent implements OnInit {
     });
   }
 
-  public setDates(date: any) {
-    this.arriveDate = date.arrive;
-    this.leaveDate = date.leave;
-    console.log(this.arriveDate, this.leaveDate);
+  public setDates(date: BookedDate) {
+    this.arriveDate = date.dateOfArrive;
+    this.leaveDate = date.dateOfLeave;
   }
 
   public calculateFullPrice() {
