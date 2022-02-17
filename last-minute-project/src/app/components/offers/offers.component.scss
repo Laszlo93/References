@@ -1,0 +1,22 @@
+.offercard:hover {
+    cursor: pointer;
+    animation: pulse;
+    animation-duration: 2s;
+}
+
+.btn {
+    background-color: #fe7443;
+}
+
+input[type="range" i] {
+    &::-webkit-slider-thumb {
+    background: #FE7443 !important;
+    }
+    &::-moz-range-thumb {
+    background: #FE7443 !important;
+    }
+    &::-ms-thumb {
+    background: #FE7443 !important;
+    }
+}
+

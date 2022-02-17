@@ -12,3 +12,13 @@
     margin-top: 2%;
     text-align: center;
 }
+
+.offercard:hover {
+    cursor: pointer;
+    animation: pulse;
+    animation-duration: 2s;
+}
+
+.btn {
+    background-color: #fe7443;
+}
