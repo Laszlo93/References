@@ -1,6 +1,6 @@
-<div class="container-fluid mt-3">
+<section class="container mt-3">
     <div class="row m-auto d-flex justify-content-around">
-        <div (click)="getDate1(day.dt, i)" *ngFor="let day of days; let i = index" [ngClass]="setClass(i)" class="col p-0 m-1 divWeatherMain">
+        <div class="col p-0 m-1 divWeatherMain" (click)="getDate1(day.dt, i)" *ngFor="let day of days; let i = index" [ngClass]="setClass(i)">
             <div style="text-decoration: none;" href="">
                 <div class="text-center date">
                     <div>
@@ -23,4 +23,4 @@
             </div>
         </div>
     </div>
-</div>
+</section>

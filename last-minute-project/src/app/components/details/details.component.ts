@@ -4,6 +4,7 @@ import { BookedDate } from 'src/app/models/booked-date.model';
 import { PackageModel } from 'src/app/models/package.model';
 import { ProgramModel } from 'src/app/models/program.model';
 import { PackageService } from 'src/app/services/package.service';
+import { faInfo, faInfoCircle } from '@fortawesome/free-solid-svg-icons'
 
 @Component({
   selector: 'app-details',
@@ -21,6 +22,9 @@ export class DetailsComponent implements OnInit {
   public leaveDate?: Date;
   public activePrograms: Array<ProgramModel> = [];
   public passivePrograms: Array<ProgramModel> = [];
+
+  faInfo = faInfo;
+  faInfoCircle = faInfoCircle;
 
   constructor(private activateRoute: ActivatedRoute, private packageService: PackageService, private router: Router) { }
 

@@ -32,6 +32,7 @@ export class TravelPlannerComponent implements OnInit {
   public splittedOrigin: Array<string> = [];
 
   public isClicked: boolean = false;
+  public enabledGeolocation: boolean = true;
 
   faCrosshairs = faCrosshairs;
 
@@ -48,11 +49,13 @@ export class TravelPlannerComponent implements OnInit {
       data => {
         this.defaultLat = data.coords.latitude;
         this.defaultLng = data.coords.longitude;
+        this.enabledGeolocation = true;
         this.initializeMap();
         this.locationService.getCityNameByCoords(this.defaultLat, this.defaultLng).subscribe((data: any) => this.origin = data.results[0].formatted_address);
       }, 
       e => {
         console.error(e)
+        this.enabledGeolocation = false;
         this.initializeMap();
       }
       );

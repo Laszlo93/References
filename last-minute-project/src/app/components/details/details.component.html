@@ -1,213 +1,203 @@
-<div class="container-fluid mt-5">
-    <div class="row text-center">
-        <div class="col">
-            <h1>{{ packageDetails?.name }}</h1>
-        </div>
-    </div>
-    <div class="row" *ngIf="packageDetails">
-        <div class="col-lg-6 m-auto">
-            <app-calendar-weather (clickEvent)="setDates($event)" [packageDetails]="packageDetails">
-            </app-calendar-weather>
-        </div>
-    </div>
-    <div class="row mt-3">
-        <div class="col-md-9 col-lg-6 m-auto">
-            <div class="card mb-3">
-                <div class="row g-0 h-100">
-                    <div class="col-lg-7">
-                        <ngb-carousel>
-                            <ng-template ngbSlide>
-                                <div>
-                                    <img style="width: 100%;" src="../../../assets/{{ packageDetails?.city }}/01.jpg"
-                                        alt="Random first slide">
-                                </div>
-                            </ng-template>
-                            <ng-template ngbSlide>
-                                <div>
-                                    <img style="width: 100%;" src="../../../assets/{{ packageDetails?.city }}/02.jpg"
-                                        alt="Random second slide">
-                                </div>
-                            </ng-template>
-                            <ng-template ngbSlide>
-                                <div>
-                                    <img style="width: 100%;" src="../../../assets/{{ packageDetails?.city }}/03.jpg"
-                                        alt="Random third slide">
-                                </div>
-                            </ng-template>
-                        </ngb-carousel>
-                    </div>
-                    <div class="col">
-                        <div class="card-body p-0 h-100">
-                            <div class="row text-center">
-                                <div class="col-md-9 m-auto">
-                                    <p>{{ packageDetails?.description }}</p>
+<div class="container-fluid">
+    <main class="container col-lg-9">
+        <header class="container">
+            <div class="row text-center">
+                <div class="col">
+                    <h1>{{ packageDetails?.name }}</h1>
+                </div>
+            </div>
+        </header>
+        <app-calendar-weather *ngIf="packageDetails" (clickEvent)="setDates($event)" [packageDetails]="packageDetails">
+        </app-calendar-weather>
+        <section class="container">
+            <div class="row mt-3">
+                <div class="col m-auto">
+                    <div class="card mb-3 border-0">
+                        <div class="row g-0 h-100">
+                            <div class="col-lg-7">
+                                <ngb-carousel>
+                                    <ng-template ngbSlide>
+                                        <div>
+                                            <img style="width: 100%;"
+                                                src="../../../assets/{{ packageDetails?.city }}/01.jpg"
+                                                alt="Random first slide">
+                                        </div>
+                                    </ng-template>
+                                    <ng-template ngbSlide>
+                                        <div>
+                                            <img style="width: 100%;"
+                                                src="../../../assets/{{ packageDetails?.city }}/02.jpg"
+                                                alt="Random second slide">
+                                        </div>
+                                    </ng-template>
+                                    <ng-template ngbSlide>
+                                        <div>
+                                            <img style="width: 100%;"
+                                                src="../../../assets/{{ packageDetails?.city }}/03.jpg"
+                                                alt="Random third slide">
+                                        </div>
+                                    </ng-template>
+                                </ngb-carousel>
+                            </div>
+                            <div class="col">
+                                <div class="card-body p-0 h-100">
+                                    <p class="p-3">{{ packageDetails?.description }}</p>
+                                    <!-- <div mdbScrollspyLink="example-1">
+                                        <button class="btn btn-danger position-absolute bottom-0 end-0 m-3">Ugrás a
+                                            foglaláshoz</button>
+                                    </div> -->
                                 </div>
                             </div>
-                            <div mdbScrollspyLink="example-1">
-                                <button class="btn btn-danger position-absolute bottom-0 end-0 m-3">Ugrás a
-                                    foglaláshoz</button>
-                            </div>
+
                         </div>
                     </div>
-
                 </div>
+            </div>
+        </section>
+        <div mdbScrollspyElement="scrollspy" id="example-1"></div>
+        <section class="container p-0">
+            <div class="row m-auto mt-5">
+                <div class="col-lg-6 m-md-auto m-lg-0">
+                    <!-- <h3>Programjaink</h3> -->
+                    <table class="table table-primary table-striped h-100">
+                        <tbody>
+                            <tr class="text-center">
+                                <th colspan="2">
+                                    <button (click)="activeProgram=true" class="btn btn-success m-2">Mozognék
+                                        kicsit</button>
+                                    <button (click)="activeProgram=false" class="btn btn-danger m-2">Csak a
+                                        lazulás</button>
+                                </th>
+                            </tr>
+                            <tr *ngFor="let program of packageDetails?.options">
+                                <td *ngIf="program.activeActivity && activeProgram" class="py-3">
+                                    <div class="form-check form-switch mt-3">
+                                        <input (change)="checkCheckbox($event, program)" class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
+                                        <label class="form-check-label" for="flexSwitchCheckChecked">{{ program.name }}</label>
+                                    </div>
+                                </td>
+                                <td *ngIf="!program.activeActivity && !activeProgram" class="py-3">
+                                    <div class="form-check form-switch">
+                                        <input (change)="checkCheckbox($event, program)" class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
+                                        <label class="form-check-label" for="flexSwitchCheckChecked">{{ program.name }}</label>
+                                    </div>
+                                </td>
+                                <td *ngIf="program.activeActivity && activeProgram"
+                                    class="h-100 d-flex align-items-center justify-content-end">
+                                    {{ program.price }}/fő
+                                    <fa-icon class="p-2 text-info fa-2x" ngbPopover="{{ program.description }}" triggers="mouseenter:mouseleave" popoverTitle="{{ program.name }}" [icon]="faInfoCircle"></fa-icon>
+                                    <!-- <button type="button" class="btn btn-outline-secondary" ngbPopover="You see, I show up on hover!" triggers="mouseenter:mouseleave" popoverTitle="Pop title">
+                                        Hover over me!
+                                    </button> -->
+                                </td>
+                                <td *ngIf="!program.activeActivity && !activeProgram"
+                                    class="h-100 d-flex align-items-center justify-content-end">
+                                    {{ program.price }}/fő
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-lg-6 m-md-auto m-lg-0">
+                    <table *ngIf="packageDetails" class="table table-primary table-striped h-100">
+                        <tbody>
+                            <tr>
+                                <td>Választott idősszak</td>
+                                <td class="text-end">
+                                    <div>
+                                        {{ packageDetails.days }} nap/{{ packageDetails.days - 1 }} éj
+                                    </div>
+                                    <div *ngIf="arriveDate">
+                                        <small>{{ arriveDate | date:"MMM d" }} - {{ leaveDate | date:"MMM d" }}</small>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="pt-3">Utazók száma</td>
+                                <td class="d-flex h-100 justify-content-end">
+                                    <button (click)="decreaseNumberOfPersons()" style="width: 40px;" type="submit"
+                                        class="btn btn-danger mx-2">-</button>
+                                    <input style="width: 40px;" type="text" value="{{ numberOfPersons }}"
+                                        class="form-control mx-2 p-1 text-center" id="exampleInputPassword1">
+                                    <button (click)="increaseNumberOfPersons()" style="width: 40px;" type="submit"
+                                        class="btn btn-success mx-2">+</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Város</td>
+                                <td class="text-end">{{ packageDetails?.city }}</td>
+                            </tr>
+                            <tr>
+                                <td>Szállás</td>
+                                <td class="text-end">{{ packageDetails?.hotelName }}</td>
+                            </tr>
+                            <tr>
+                                <td>Ellátás</td>
+                                <td class="text-end">{{ packageDetails?.meals }}</td>
+                            </tr>
+                            <tr *ngIf="fullPrice">
+                                <td> Ár</td>
+                                <td class="text-end">{{ fullPrice }} Ft</td>
+                            </tr>
+                            <tr>
+                                <th colspan="2" class="text-end p-2">
+                                    <div>
+                                        <small style="color: red;" *ngIf="!arriveDate">Nem adtad meg az indulás
+                                            időpontját</small>
+                                    </div>
+                                    <button class="btn btn-success px-4" data-bs-toggle="modal"
+                                        data-bs-target="#exampleModalCenter">Foglalás</button>
+                                </th>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+        <app-travel-planner [destination]="packageDetails?.city"></app-travel-planner>
+    </main>
+</div>
+
+<div *ngIf="arriveDate" class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Foglalás részletei</h5>
+            </div>
+            <div class="modal-body">
+                <p>Érkezés: {{ arriveDate | date:"MMM d" }} - Távozás{{ leaveDate | date:"MMM d" }}</p>
+                <p>{{ numberOfPersons }} fő</p>
+                <p>Választott programok: </p>
+                <div *ngIf="activeProgram">
+                    <p *ngFor="let program of activePrograms">&emsp;- {{ program.name }}</p>
+                </div>
+                <div *ngIf="!activeProgram">
+                    <p *ngFor="let program of passivePrograms">&emsp;- {{ program.name }}</p>
+                </div>
+                <p class="text-end h3"><strong>{{ fullPrice }} Ft</strong></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Vissza</button>
+                <button type="button" class="btn btn-primary"  data-bs-toggle="modal"
+                data-bs-target="#staticBackdrop">Megerősít</button>
             </div>
         </div>
     </div>
+</div>
 
-    <div mdbScrollspyElement="scrollspy" id="example-1"></div>
-    <div class="row col-lg-6 m-auto mt-5">
-        <div class="col-md-8 col-lg-6 m-md-auto m-lg-0">
-            <!-- <h3>Programjaink</h3> -->
-            <table class="table table-primary table-striped h-100">
-                <tbody>
-                    <tr class="text-center">
-                        <th colspan="2">
-                            <button (click)="activeProgram=true" class="btn btn-success m-2">Mozognék kicsit</button>
-                            <button (click)="activeProgram=false" class="btn btn-danger m-2">Csak a lazulás</button>
-                        </th>
-                    </tr>
-                    <tr *ngFor="let program of packageDetails?.options">
-                        <td *ngIf="program.activeActivity && activeProgram" class="py-3">
-                            <div class="form-check form-switch">
-                                <input (change)="checkCheckbox($event, program)" class="form-check-input mt-2"
-                                    type="checkbox" id="" checked>
-                                <label class="form-check-label w-100" for="flexSwitchCheckChecked">
-                                    <div type="button" class=" ms-2" placement="top"
-                                        ngbPopover="{{ program.description }}" popoverTitle="{{ program.name }}">
-                                        {{ program.name }}
-                                    </div>
-                                </label>
-                            </div>
-                        </td>
-                        <td *ngIf="!program.activeActivity && !activeProgram" class="py-3">
-                            <div class="form-check form-switch">
-                                <input (change)="checkCheckbox($event, program)" class="form-check-input mt-2"
-                                    type="checkbox" id="" checked>
-                                <label class="form-check-label w-100" for="flexSwitchCheckChecked">
-                                    <div type="button" class=" ms-2" placement="top"
-                                        ngbPopover="{{ program.description }}" popoverTitle="{{ program.name }}">
-                                        {{ program.name }}
-                                    </div>
-                                </label>
-                            </div>
-                        </td>
-                        <td *ngIf="program.activeActivity && activeProgram"
-                            class="h-100 d-flex align-items-center justify-content-end">
-                            {{ program.price }}/fő
-                        </td>
-                        <td *ngIf="!program.activeActivity && !activeProgram"
-                            class="h-100 d-flex align-items-center justify-content-end">
-                            {{ program.price }}/fő
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="col-md-8 col-lg-6 m-md-auto m-lg-0">
-            <table *ngIf="packageDetails" class="table table-primary table-striped h-100">
-                <tbody>
-                    <tr>
-                        <td>Választott idősszak</td>
-                        <td class="text-end">
-                            <div>
-                                {{ packageDetails.days }} nap/{{ packageDetails.days - 1 }} éj
-                            </div>
-                            <div *ngIf="arriveDate">
-                                <small>{{ arriveDate | date:"MMM d" }} - {{ leaveDate | date:"MMM d" }}</small>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="pt-3">Utazók száma</td>
-                        <td class="d-flex h-100 justify-content-end">
-                            <button (click)="decreaseNumberOfPersons()" style="width: 40px;" type="submit"
-                                class="btn btn-danger mx-2">-</button>
-                            <input style="width: 40px;" type="text" value="{{ numberOfPersons }}"
-                                class="form-control mx-2 p-1 text-center" id="exampleInputPassword1">
-                            <button (click)="increaseNumberOfPersons()" style="width: 40px;" type="submit"
-                                class="btn btn-success mx-2">+</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Város</td>
-                        <td class="text-end">{{ packageDetails?.city }}</td>
-                    </tr>
-                    <tr>
-                        <td>Szállás</td>
-                        <td class="text-end">{{ packageDetails?.hotelName }}</td>
-                    </tr>
-                    <tr>
-                        <td>Ellátás</td>
-                        <td class="text-end">{{ packageDetails?.meals }}</td>
-                    </tr>
-                    <tr *ngIf="fullPrice">
-                        <td> Ár</td>
-                        <td class="text-end">{{ fullPrice }} Ft</td>
-                    </tr>
-                    <tr>
-                        <th colspan="2" class="text-end p-2">
-                            <div>
-                                <small style="color: red;" *ngIf="!arriveDate">Nem adtad meg az indulás időpontját</small>
-                            </div>
-                            <button class="btn btn-success px-4" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal">Foglalás</button>
-                        </th>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-
-    <div class="row mt-5">
-        <div class="col-md-7 m-auto">
-            <app-travel-planner [destination]="packageDetails?.city"></app-travel-planner>
-        </div>
-    </div>
-
-    <!-- Modal -->
-    <div *ngIf="arriveDate" class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Foglalás megerősítése</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p>Utazás időtartama : {{ arriveDate | date:"MMM d" }} - {{ leaveDate | date:"MMM d" }}</p>
-                    <p>Utazók száma : {{ numberOfPersons }}</p>
-                    <p>Ár : {{ fullPrice }}</p>
-                    <div *ngIf="activeProgram">
-                        <p *ngFor="let program of activePrograms">{{ program.name }}</p>
-                    </div>
-                    <div *ngIf="!activeProgram">
-                        <p *ngFor="let program of passivePrograms">{{ program.name }}</p>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kilép</button>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                        data-bs-target="#staticBackdrop">
-                        Megerősít
-                    </button>
-                </div>
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Foglalás megerősítése</h5>
             </div>
-        </div>
-    </div>
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Köszönjük foglalását!</h5>
-                </div>
-                <div class="modal-body">
-                    Köszönjük foglalását! Várjuk szeretettel!
-                </div>
-                <div class="modal-footer">
-                    <button (click)="navigateBackToOffers()" type="button" class="btn btn-primary" data-bs-dismiss="modal">Vissza az
-                        ajánlatokhoz</button>
-                </div>
+            <div class="modal-body">
+                Köszönjük foglalását! Várjuk szeretettel!
+            </div>
+            <div class="modal-footer">
+                <button (click)="navigateBackToOffers()" type="button" class="btn btn-primary"  data-bs-toggle="modal">Vissza az ajánlatokra</button>
             </div>
         </div>
     </div>
