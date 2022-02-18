@@ -1,8 +1,8 @@
 <div class="container mt-5">
     <div class="row">
         <div class="col-lg-3 m-3">
-            <label for="maxPricePackage" class="form-label">Maximum ár: {{price | number}} Ft</label>
-            <input (input)="onChangePriceInput($event)" type="range" class="form-range" min="0" [max]="maxPrice"
+            <label for="maxPricePackage" class="form-label">Maximum ár: {{price | currency:'Ft':'symbol':'0.0-0':'hu'}}</label>
+            <input (input)="onChangePriceInput($event)" type="range" class="form-range" min="10000" [max]="maxPrice"
                 step="10000" [value]="price" id="maxPricePackage">
 
             <label for="smart" class="form-label">Keresés város alapján:</label>
@@ -10,7 +10,7 @@
             <select (change)="onChangeCityInput($event)" class="form-select">
                 <option disabled hidden selected>Válasszon várost:</option>
                 <option value="">mindegyik</option>
-                <option *ngFor="let city of cities" [value]="city">{{city}}</option>
+                <option class="" *ngFor="let city of cities" [value]="city">{{city}}</option>
             </select>
         </div>
     </div>

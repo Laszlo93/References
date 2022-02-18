@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PackageModel } from 'src/app/models/package.model';
 import { PackageService } from 'src/app/services/package.service';
+import { registerLocaleData } from '@angular/common';
+import localeHu from '@angular/common/locales/hu';
+registerLocaleData(localeHu, 'hu');
 
 @Component({
   selector: 'app-offers',
