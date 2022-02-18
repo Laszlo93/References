@@ -1,9 +1,8 @@
-import { Component, ElementRef, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
-import { GoogleMapsModule, MapGeocoder, MapMarker, MapMarkerClusterer } from '@angular/google-maps';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { GoogleMapsModule } from '@angular/google-maps';
 import { GoogleDirectionService } from 'src/app/services/google-direction.service';
 import { LocationService } from 'src/app/services/location.service';
-import { WeatherService } from 'src/app/services/weather.service';
-
+import { faCrosshairs } from '@fortawesome/free-solid-svg-icons'
 @Component({
   selector: 'app-travel-planner',
   templateUrl: './travel-planner.component.html',
@@ -33,6 +32,8 @@ export class TravelPlannerComponent implements OnInit {
   public splittedOrigin: Array<string> = [];
 
   public isClicked: boolean = false;
+
+  faCrosshairs = faCrosshairs;
 
   constructor(private locationService: LocationService, private googleService: GoogleDirectionService) { 
   }

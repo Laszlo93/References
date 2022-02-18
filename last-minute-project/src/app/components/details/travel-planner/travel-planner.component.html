@@ -5,9 +5,13 @@
                 <h5 class="card-title">Útvonal és költségkalkulátor</h5>
                 <div class="row d-flex justify-content-around mt-4 m-auto">
                     <div class="col-lg-8">
-                        <input [(ngModel)]="origin" type="email" class="form-control"
-                            id="exampleInputEmail1" value="{{ origin }}" aria-describedby="emailHelp"
-                            placeholder="Indulás helye...">
+                        <div class="input-group mb-3">
+                            <input [(ngModel)]="origin" value="{{ origin }}" type="text" class="form-control"
+                                placeholder="Indulás helye...">
+                            <button (click)="ngOnInit()" class="btn btn-outline-secondary" id="button-addon2">
+                                <fa-icon [icon]="faCrosshairs"></fa-icon>
+                            </button>
+                        </div>
                     </div>
                     <div class="col-lg-4">
                         <button (click)="initMap()" class="btn btn-success" type="button">Számol</button>
