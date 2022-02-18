@@ -1,5 +1,6 @@
-import { Component, ComponentFactoryResolver, Input, OnInit } from '@angular/core';
-import { switchMap } from 'rxjs';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { first, last, switchMap } from 'rxjs';
+import { BookedDate } from 'src/app/models/booked-date.model';
 import { PackageModel } from 'src/app/models/package.model';
 import { LocationService } from 'src/app/services/location.service';
 import { WeatherService } from 'src/app/services/weather.service';
@@ -12,8 +13,15 @@ import { WeatherService } from 'src/app/services/weather.service';
 export class CalendarWeatherComponent implements OnInit {
 
   @Input() public packageDetails?: PackageModel;
+  @Output() clickEvent = new EventEmitter<BookedDate>();
 
   days: Array<any> = [];
+  public selectedDateBgColor: string = "none";
+  public selectedIndex?: number;
+  public arriveDate?: Date;
+  public leaveDate?: Date;
+
+
 
 
   constructor(private weatherService: WeatherService, private locationService: LocationService) { }
@@ -29,13 +37,25 @@ export class CalendarWeatherComponent implements OnInit {
       : 0;
     }
 
-  public getDate(date: any) {
+  public getDate(date: number) {
     return new Date(date * 1000);
   }
 
-  public getDate1(date: number) {
-    const newDate = new Date(date * 1000);
-    console.log(newDate.getDay());
+  public getDate1(date: number, index: number) {
+    this.selectedIndex = index;
+    if (this.packageDetails) {
+      this.arriveDate = new Date(date * 1000);
+      this.leaveDate = new Date(this.arriveDate);
+      this.leaveDate.setDate(this.arriveDate.getDate() + this.packageDetails?.days - 1);
+      console.log(this.arriveDate, this.leaveDate)
+      this.clickEvent.emit({dateOfArrive: this.arriveDate, dateOfLeave: this.leaveDate});
+    }
   }
 
+  public setClass(i: number) {
+    if(this.selectedIndex != undefined && this.packageDetails) {
+      return i >= this.selectedIndex && i <= this.selectedIndex + this.packageDetails?.days - 1 ? "selected-date" : "non-selected-date";
+    }
+    return "non-selected-date";
+  }
 }

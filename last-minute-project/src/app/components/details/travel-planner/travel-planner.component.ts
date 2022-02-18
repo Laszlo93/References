@@ -99,6 +99,6 @@ export class TravelPlannerComponent implements OnInit {
       this.cost = Math.floor(this.distance / 100 * 7 * 480 * 2);
     }
     this.duration = `${Math.floor(durationWithFractionalNumber)} óra ${(durationWithFractionalNumber % 1 * 60).toFixed(0)} perc`;
-    this.splittedOrigin = this.origin.split(' ');
+    this.splittedOrigin = this.origin.split(',');
   }
 }
