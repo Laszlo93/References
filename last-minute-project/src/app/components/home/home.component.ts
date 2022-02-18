@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { PackageModel } from 'src/app/models/package.model';
 import { PackageService } from 'src/app/services/package.service'
 
@@ -15,7 +16,7 @@ export class HomeComponent implements OnInit {
   public inputValue: string = "Visegrád";
   public canSubmit: boolean = true;
 
-  constructor(private packageService: PackageService) { }
+  constructor(private packageService: PackageService, private router: Router) { }
 
   ngOnInit(): void {
     this.packageService.getPackages().subscribe({
@@ -26,5 +27,9 @@ export class HomeComponent implements OnInit {
       error: (e) => console.log(e),
       complete: () => console.log('Done')
     })
+  }
+
+  public goToPackageDetails(packageName: string): void {
+    this.router.navigate(["offers", packageName]);
   }
 }

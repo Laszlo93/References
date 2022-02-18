@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { PackageModel } from 'src/app/models/package.model';
-import { ProgramModel } from 'src/app/models/program.model';
-import { PackageService } from 'src/app/services/package.service'
+import { PackageService } from 'src/app/services/package.service';
 
 @Component({
   selector: 'app-offers',
@@ -10,16 +10,13 @@ import { PackageService } from 'src/app/services/package.service'
 })
 export class OffersComponent implements OnInit {
 
-  public travelPackages: PackageModel[] = [];
-  public travelPrograms: ProgramModel[] = [];
+  public travelPackages: Array<PackageModel> = [];
   public selectedPackages: PackageModel[] = [];
-  public inputValue: string = "";
-  public canSubmit: boolean = true;
   public cities: string[] = [];
   public maxPrice: number = 500000;
   public price: number = 100000;
 
-  constructor(private packageService: PackageService) { }
+  constructor(private packageService: PackageService, private router: Router) { }
 
   ngOnInit(): void {
     this.packageService.getPackages().subscribe({
@@ -46,5 +43,8 @@ export class OffersComponent implements OnInit {
     this.selectedPackages = this.travelPackages.filter(data => data.price <= this.price);
   }
 
-}
+  public goToPackageDetails(packageName: string): void {
+    this.router.navigate(["offers", packageName]);
+  }
 
+}

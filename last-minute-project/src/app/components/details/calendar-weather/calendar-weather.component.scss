@@ -1,0 +1,48 @@
+.divWeatherMain{
+    display: block;
+    border-radius: 10px;
+    background: linear-gradient(180deg, rgb(241, 243, 245) 0%, rgb(157, 194, 228) 75%, rgb(127, 161, 233) 100%);
+    cursor: pointer;
+    //border: 1px solid black;
+    //width: 180px;
+    //height: 220px;
+}
+
+#divWeatherMain {
+    background: red;
+}
+
+.date {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    
+    //border-radius: 10px;
+}
+
+.weather {
+    //background: linear-gradient(180deg, rgb(199, 225, 255) 0%, rgb(72, 108, 224) 75%, rgb(64, 69, 228) 100%);
+    color: white;;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.weatherWidgetRow{
+    display:block;
+    margin:0 auto;
+    width: fit-content;
+}
+
+.selected-date {
+    //background: red;
+    border: 1px red solid;
+}
+
+// .non-selected-date {
+//     background-color: white;
+// }
+
+@keyframes cloudMovement{
+    from{margin-left: -55px;}
+    to{margin-left: 65px;}
+}
