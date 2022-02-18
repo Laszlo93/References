@@ -38,7 +38,13 @@
                     "price": 3000
                 },
                 {
-                    "name": "Svédmasszázs",
+                    "name": "Galerius Élményfürdő és Wellness Központ kedvezményes belépő a szálloda vendégeinek részére",
+                    "description": "Rövid leírás",
+                    "activeActivity": false,
+                    "price": 4000
+                },
+                {
+                    "name": "Galerius Élményfürdő és Wellness Központ kedvezményes belépő a szálloda vendégeinek részére",
                     "description": "Rövid leírás",
                     "activeActivity": false,
                     "price": 4000

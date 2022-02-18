@@ -33,6 +33,10 @@ export class DetailsComponent implements OnInit {
     });
   }
 
+  public initView(valami: any) {
+    valami.scrollIntoView({behavior: "smooth", block: "start", inline: "smart"});
+  }
+
   public checkCheckbox(event: any, program: ProgramModel) {
     event.target.checked ? this.increasePrice(program.price) : this.decreasePrice(program.price);
   }

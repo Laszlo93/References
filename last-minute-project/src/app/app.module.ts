@@ -15,6 +15,7 @@ import { TravelPlannerComponent } from './components/details/travel-planner/trav
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MdbScrollspyModule } from 'mdb-angular-ui-kit/scrollspy';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HttpClientModule,
     GoogleMapsModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    MdbScrollspyModule
   ],
   providers: [],
   bootstrap: [AppComponent]
