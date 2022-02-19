@@ -15,6 +15,8 @@ import { TravelPlannerComponent } from './components/details/travel-planner/trav
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { RegisterComponent } from './components/register/register.component';
+import { AdminComponent } from './components/admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     TravelPlannerComponent,
     NavbarComponent,
     FooterComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    RegisterComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
