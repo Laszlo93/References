@@ -13,12 +13,38 @@
     text-align: center;
 }
 
-.offercard:hover {
-    cursor: pointer;
-    animation: pulse;
-    animation-duration: 2s;
+.offercard {
+    background-color: #48c0d7;
+    
+    &:hover {
+        cursor: pointer;
+        animation: pulse;
+        animation-duration: 2s;
+        background-color: #fe7443;
+        
+        .card-img-caption .card-text {
+            color: #fe7443 !important;
+        }
+    }
 }
 
+.card-img-caption {
+    border-top-left-radius: calc(.25rem - 1px);
+    border-top-right-radius: calc(.25rem - 1px);
+    .card-img-top {
+        z-index: 0;
+        position: relative;
+    }
+      
+    .card-text {
+        position: absolute;
+        bottom: 18%;
+        text-align: center;
+        text-shadow: 1px 1px 2px black, 0 0 1em black, 0 0 0.2em black;
+        width: 100%;
+        z-index: 1;
+    }
+}
 .btn {
     background-color: #fe7443;
 }
