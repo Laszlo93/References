@@ -26,6 +26,24 @@
                     "price": 3000
                 },
                 {
+                    "name": "Bobozás",
+                    "description": "Rövid leírás",
+                    "activeActivity": true,
+                    "price": 3000
+                },
+                {
+                    "name": "Bowling verseny",
+                    "description": "Rövid leírás",
+                    "activeActivity": true,
+                    "price": 3000
+                },
+                {
+                    "name": "Quad túra",
+                    "description": "Rövid leírás",
+                    "activeActivity": true,
+                    "price": 3000
+                },
+                {
                     "name": "Vitorlázás",
                     "description": "Rövid leírás",
                     "activeActivity": true,
@@ -45,6 +63,18 @@
                 },
                 {
                     "name": "Romantikus vacsora 2 fő részére",
+                    "description": "Rövid leírás",
+                    "activeActivity": false,
+                    "price": 4000
+                },
+                {
+                    "name": "Romantikus vacsora 2 fő részére",
+                    "description": "Rövid leírás",
+                    "activeActivity": false,
+                    "price": 4000
+                },
+                {
+                    "name": "Svédmasszázs",
                     "description": "Rövid leírás",
                     "activeActivity": false,
                     "price": 4000

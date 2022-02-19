@@ -4,7 +4,7 @@ import { BookedDate } from 'src/app/models/booked-date.model';
 import { PackageModel } from 'src/app/models/package.model';
 import { ProgramModel } from 'src/app/models/program.model';
 import { PackageService } from 'src/app/services/package.service';
-import { faInfo, faInfoCircle } from '@fortawesome/free-solid-svg-icons'
+import { faInfo, faInfoCircle, faMapMarker, faCalendarCheck, faHotel, faHamburger, faPeopleArrows} from '@fortawesome/free-solid-svg-icons'
 
 @Component({
   selector: 'app-details',
@@ -22,9 +22,16 @@ export class DetailsComponent implements OnInit {
   public leaveDate?: Date;
   public activePrograms: Array<ProgramModel> = [];
   public passivePrograms: Array<ProgramModel> = [];
+  public activeProgramsToShow: Array<ProgramModel> = [];
+  public passiveProgramsToShow: Array<ProgramModel> = [];
 
   faInfo = faInfo;
   faInfoCircle = faInfoCircle;
+  faMapMarker = faMapMarker;
+  faCalendarCheck = faCalendarCheck;
+  faHotel = faHotel;
+  faHamburger = faHamburger;
+  faPeopleArrows = faPeopleArrows;
 
   constructor(private activateRoute: ActivatedRoute, private packageService: PackageService, private router: Router) { }
 
@@ -44,6 +51,7 @@ export class DetailsComponent implements OnInit {
 
   public setActiveAndPassivePrograms(programs: Array<ProgramModel>): void {
     programs.forEach(program => program.activeActivity ? this.activePrograms.push(program) : this.passivePrograms.push(program));
+    programs.forEach(program => program.activeActivity ? this.activeProgramsToShow.push(program) : this.passiveProgramsToShow.push(program));
   }
 
   public navigateBackToOffers(): void {
