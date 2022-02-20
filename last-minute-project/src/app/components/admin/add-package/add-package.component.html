@@ -160,10 +160,17 @@
                     <label for="program-quantity">Programok száma:</label>
                 </div>
                 <div class="col-md-3">
-                    <input type="number" class="form-control" id="program-quantity" name="programQuantity" #programQuantity="ngModel" placeholder="" ngModel required>
+                    <input type="number" 
+                    class="form-control" 
+                    id="program-quantity" 
+                    name="programQuantity" 
+                    #programQuantity="ngModel" 
+                    placeholder="" 
+                    [(ngModel)]="pQuantity" 
+                    required>
                 </div>
                 <div class="col-md-4 text-md-end">
-                    <button class="btn btn-primary text-right" id="programQuantitySubmit" type="submit">Hozzáadás</button>
+                    <button class="btn btn-primary text-right" id="programQuantitySubmit" type="submit" [disabled]="pQuantity ===0">Hozzáadás</button>
                 </div>
              
             </div>

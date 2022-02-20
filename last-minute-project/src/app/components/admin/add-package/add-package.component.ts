@@ -26,6 +26,7 @@ export class AddPackageComponent implements OnInit {
     activeActivity: true
   };
 
+  pQuantity: number = 0;
 
   travelPackage: PackageModel = {
     id: 0,
@@ -68,13 +69,13 @@ export class AddPackageComponent implements OnInit {
           activeActivity: true
         }
 
-    console.log("Az adat, ami átjött: " + data.programQuantity)
       if(data.programQuantity !==0 || data.programQuantity.length < 1){
       for (let i = 0; i < data.programQuantity-1; i++) {
         this.items = [...this.items, this.items.length];
         this.travelPackage.options.push(optionsPackage);
       }
       this.isShown=true;
+      this.pQuantity = 0;
       }
   }
 
