@@ -18,6 +18,17 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { RegisterComponent } from './components/register/register.component';
+import { AdminComponent } from './components/admin/admin.component';
+import { environment } from '../environments/environment';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import {AngularFireModule} from "@angular/fire/compat";
+import {AngularFireAnalyticsModule} from "@angular/fire/compat/analytics";
+import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
+import { AddPackageComponent } from './components/admin/add-package/add-package.component';
+
 
 @NgModule({
   declarations: [
@@ -30,7 +41,10 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     TravelPlannerComponent,
     NavbarComponent,
     FooterComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    RegisterComponent,
+    AdminComponent,
+    AddPackageComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +54,14 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     FormsModule,
     NgbModule,
     MdbScrollspyModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    // provideFirebaseApp(() => initializeApp(environment.firebase)),
+    // provideAuth(() => getAuth()),
+    // provideFirestore(() => getFirestore())
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAnalyticsModule,
+    AngularFirestoreModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
