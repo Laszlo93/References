@@ -16,7 +16,7 @@
     </div>
 </div>
 
-<div class="container d-flex flex-wrap justify-content-between align-items-center mb-5" style="padding-top: 5em;">
+<div class="container d-flex flex-wrap justify-content-around align-items-center mb-5" style="padding-top: 5em;">
     <div *ngFor="let package of selectedPackages ; let i = index" class="card-border shadow card m-3 offercard"
         style="width: 18rem;" (click)="goToPackageDetails(package.name)">
         <h3 class="text-light text-center pt-2">{{package.city}}</h3>
