@@ -1,19 +1,21 @@
 <h5 class="card-title">Útvonal és költségkalkulátor</h5>
-<div class="row d-flex justify-content-around mt-4 m-auto">
-    <div class="col-lg-8">
-        <div class="input-group mb-3">
-            <input [(ngModel)]="origin" value="{{ origin }}" type="text" class="form-control"
-                placeholder="Indulás helye...">
-            <button (click)="ngOnInit()" class="btn btn-outline-secondary" id="button-addon2">
-                <fa-icon [icon]="faCrosshairs"></fa-icon>
-            </button>
-            <div *ngIf="!enabledGeolocation" id="emailHelp" class="form-text">Engedélyezd a helymeghatározást vagy írd
-                be a
-                kiindulás helyét</div>
+<div class="row m-auto">
+    <div class="col-md-8 col-lg-12 m-auto d-flex justify-content-center p-0">
+        <div class="col p-0 d-flex justify-content-around mt-4 w-100">
+            <div class="input-group mb-3">
+                <input [(ngModel)]="origin" value="{{ origin }}" type="text" class="form-control"
+                    placeholder="Indulás helye...">
+                <button (click)="ngOnInit()" class="btn btn-outline-secondary" id="button-addon2">
+                    <fa-icon [icon]="faCrosshairs"></fa-icon>
+                </button>
+                <div *ngIf="!enabledGeolocation" id="emailHelp" class="form-text">Engedélyezd a helymeghatározást vagy írd
+                    be a
+                    kiindulás helyét</div>
+            </div>
+            <div class="col-md-4 ps-1 pe-0 text-end">
+                <button (click)="initMap()" class="btn btn-blue" type="button">Számol</button>
+            </div>
         </div>
-    </div>
-    <div class="col-lg-4">
-        <button (click)="initMap()" class="btn btn-blue" type="button">Számol</button>
     </div>
 </div>
 <div class="row mt-3">

@@ -30,3 +30,25 @@
 .border-blue {
   border: 1px solid rgba(72, 192, 215, 1);
 }
+
+.details-text {
+  font-size: 1.1rem;
+}
+
+@media (min-width: 992px) {
+  .details-text {
+    font-size: 0.9rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .details-text {
+    font-size: 1.1rem;
+  }
+}
+
+@media (min-width: 1400px) {
+  .details-text {
+    font-size: 1.3rem;
+  }
+}
