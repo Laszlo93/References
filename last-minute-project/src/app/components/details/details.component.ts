@@ -15,7 +15,7 @@ export class DetailsComponent implements OnInit {
 
   public packageName: any;
   public packageDetails?: PackageModel;
-  public activeProgram: boolean = true;
+  public activePackage: boolean = true;
   public numberOfPersons: number = 2;
   public fullPrice: number = 0;
   public arriveDate?: Date;
@@ -24,6 +24,8 @@ export class DetailsComponent implements OnInit {
   public passivePrograms: Array<ProgramModel> = [];
   public activeProgramsToShow: Array<ProgramModel> = [];
   public passiveProgramsToShow: Array<ProgramModel> = [];
+  public activeChecked: boolean = true;
+  public passiveChecked?: boolean;
 
   faInfo = faInfo;
   faInfoCircle = faInfoCircle;
@@ -71,10 +73,10 @@ export class DetailsComponent implements OnInit {
 
     if (event.target.checked) {
       this.increasePrice(program.price);
-      this.activeProgram ? this.activePrograms.push(program) : this.passivePrograms.push(program);
+      this.activePackage ? this.activePrograms.push(program) : this.passivePrograms.push(program);
     } else {
       this.decreasePrice(program.price);
-      if (this.activeProgram) {
+      if (this.activePackage) {
         indexOfProgram = this.activePrograms.indexOf(program);
         this.activePrograms.splice(indexOfProgram, 1);
       } else {
@@ -109,14 +111,25 @@ export class DetailsComponent implements OnInit {
   }
 
   public increaseNumberOfPersons(): void {
-    this.numberOfPersons++;
+    this.numberOfPersons < 6 ? this.numberOfPersons++ : 0;
     this.calculateFullPrice();
   }
 
   public decreaseNumberOfPersons(): void {
-    this.numberOfPersons--;
+    this.numberOfPersons > 1 ? this.numberOfPersons-- : 0;
     this.calculateFullPrice();
   }
   
+  public isActivePackage(): void {
+    this.activePackage = true;
+    this.passiveChecked = false;
+    this.activeChecked = true;
+  }
+
+  public isPassivePackage(): void {
+    this.activePackage = false;
+    this.activeChecked = false;
+    this.passiveChecked = true;
+  }
 
 }

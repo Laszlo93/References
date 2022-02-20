@@ -2,10 +2,10 @@
     <main class="container col-lg-9">
         <header class="container">
             <div class="row text-center">
-                <div class="col-lg-4 mt-4">
+                <div class="col-xl-4 mt-4">
                     <h1 class="h-100 align-middle">{{ packageDetails?.name }}</h1>
                 </div>
-                <div class="col-lg-8 p-0">
+                <div class="col-xl-8 p-0">
                     <app-calendar-weather *ngIf="packageDetails" (clickEvent)="setDates($event)" [packageDetails]="packageDetails">
                     </app-calendar-weather>
                 </div>
@@ -20,7 +20,7 @@
                                 <ngb-carousel>
                                     <ng-template ngbSlide>
                                         <div>
-                                            <img class="w-100"
+                                            <img class="w-100 h-100"
                                                 src="../../../assets/{{ packageDetails?.city }}/01.jpg"
                                                 alt="Random first slide">
                                         </div>
@@ -57,22 +57,9 @@
                             </div>
                             <div class="col">
                                 <div *ngIf="packageDetails"
-                                    class="card-body p-0 h-100 fw-bold ps-lg-3 fs-5 d-flex align-items-center"
+                                    class="card-body p-0 h-100 fw-bold ps-lg-3 details-text d-flex align-items-center"
                                     style="background-color: rgb(231, 236, 238);">
                                     <div class="w-100">
-                                        <div>
-                                            <div class="text-center fw-bol">
-                                                <div class="my-2">
-                                                    Válasszon csomagot
-                                                </div>
-                                                <div>
-                                                    <button (click)="activeProgram=true;calculateFullPrice()" mdbScrollspyLink="example-1"
-                                                        type="button" class="btn btn-blue mx-2">Aktív</button>
-                                                    <button (click)="activeProgram=false;calculateFullPrice()" mdbScrollspyLink="example-1"
-                                                        type="button" class="btn btn-orange mx-2">Pihentető</button>
-                                                </div>
-                                            </div>
-                                        </div>
                                         <div class="pt-3">
                                             <div class="d-flex align-items-center">
                                                 <fa-icon class="fa-2x text-orange p-2" [icon]="faPeopleArrows">fa
@@ -99,8 +86,7 @@
                                                     {{ packageDetails.days }} nap/{{ packageDetails.days - 1 }} éj
                                                 </div>
                                                 <div *ngIf="arriveDate">
-                                                    <small>({{ arriveDate | date:"MMM d" }} - {{ leaveDate | date:"MMM
-                                                        d" }})</small>
+                                                    <small>&nbsp;({{ arriveDate | date:"MMM d" }} - {{ leaveDate | date:"MMM d" }})</small>
                                                 </div>
                                             </div>
                                         </div>
@@ -137,16 +123,46 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="">
+                                            <div class="">
+                                                <div class="d-flex">
+                                                    <div class="my-2 me-2">
+                                                       Csomagjaink:
+                                                    </div>
+                                                    <div class="form-check m-2">
+                                                        <label class="form-check-label" for="flexRadioDefault1">
+                                                            Aktív
+                                                        </label>
+                                                        <input (change)="isActivePackage();calculateFullPrice()" mdbScrollspyLink="example-1" class="form-check-input" type="radio" id="flexRadioDefault1" [checked]="activeChecked">
+                                                    </div>
+                                                    <div class="form-check m-2">
+                                                        <label class="form-check-label" for="flexRadioDefault2">
+                                                            Pihentető
+                                                        </label>
+                                                        <input (change)="isPassivePackage();calculateFullPrice()" mdbScrollspyLink="example-1" class="form-check-input" type="radio" id="flexRadioDefault2" [checked]="passiveChecked">
+                                                    </div>
+                                                    <!-- <button (click)="activePackage=true;calculateFullPrice()" mdbScrollspyLink="example-1"
+                                                        type="button" class="btn btn-blue mx-2">Aktív</button>
+                                                    <button (click)="activePackage=false;calculateFullPrice()" mdbScrollspyLink="example-1"
+                                                        type="button" class="btn btn-orange mx-2">Pihentető</button> -->
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div class="text-end p-2 text-blue fs-3">
-                                            {{ fullPrice }} Ft
+                                            {{ fullPrice.toLocaleString("hu") }} Ft
                                         </div>
                                         <div class="text-end text-danger p-2 fs-6">
-                                            <div>
+                                            <!-- <div>
                                                 <small *ngIf="!arriveDate">Nem adta meg az indulás
                                                     időpontját</small>
-                                            </div>
-                                            <button class="btn btn-orange px-4" data-bs-toggle="modal"
-                                                data-bs-target="#exampleModalCenter">Foglalás</button>
+                                            </div> -->
+                                            <button *ngIf="!arriveDate" ngbPopover="Kérlek válaszd ki, hogy mikor utaznál"
+                                                triggers="mouseenter:mouseleave" class="btn btn-orange px-4" data-bs-target="#exampleModalCenter">
+                                                Foglalás
+                                            </button>
+                                            <button *ngIf="arriveDate" class="btn btn-orange px-4"  data-bs-toggle="modal"
+                                                data-bs-target="#exampleModalCenter">Foglalás
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -168,40 +184,60 @@
             <div class="row m-auto my-4">
                 <h5 class="d-block p-0">Programok</h5>
                 <div class="col-lg-8 p-0 mt-3">
-                    <div class="col border border-1 rounded-2 h-100 d-flex align-items-center">
-                        <div class="d-flex flex-wrap justify-content-center" *ngIf="activeProgram">
-                            <div *ngFor="let program of activeProgramsToShow" class="form-check form-switch m-2 d-flex align-items-center rounded-pill border-blue">
-                                <div class="ps-2">
-                                    <input (change)="checkCheckbox($event, program)" class="form-check-input text-blue" type="checkbox"
-                                        id="flexSwitchCheckChecked" checked>
-                                    <label class="form-check-label" for="flexSwitchCheckChecked">{{ program.name }}</label>
+                    <div class="col border border-1 rounded-2 h-100 position-relative">
+                        <div class="d-flex">
+                            <div class="form-check m-2">
+                                <input (change)="isActivePackage();calculateFullPrice()" class="form-check-input" type="radio" id="flexRadioDefault11" [checked]="activeChecked">
+                                <label class="form-check-label" for="flexRadioDefault11">
+                                    Aktív
+                                </label>
+                            </div>
+
+                            <div class="form-check m-2">
+                                <input (change)="isPassivePackage();calculateFullPrice()" class="form-check-input" type="radio" id="flexRadioDefault22" [checked]="passiveChecked">
+                                <label class="form-check-label" for="flexRadioDefault22">
+                                    Pihentető
+                                </label>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center" style="min-height: 250px;">
+                            <div class="d-flex flex-wrap justify-content-center" *ngIf="activePackage">
+                                <div *ngFor="let program of activeProgramsToShow" class="form-check form-switch m-2 d-flex align-items-center rounded-pill border-blue">
+                                    <div class="ps-2">
+                                        <input (change)="checkCheckbox($event, program)" class="form-check-input text-blue" type="checkbox"
+                                            id="flexSwitchCheckChecked" checked>
+                                        <label class="form-check-label" for="flexSwitchCheckChecked">{{ program.name }}</label>
+                                    </div>
+                                    <div *ngIf="activePackage" class="ps-2 ps-lg-5">
+                                        {{ program.price.toLocaleString("hu") }}/fő
+                                    </div>
+                                    <div class="p-2">
+                                        <fa-icon class="p-2 text-info" ngbPopover="{{ program.description }}"
+                                            triggers="mouseenter:mouseleave" popoverTitle="{{ program.name }}"
+                                            [icon]="faInfoCircle"></fa-icon>
+                                    </div>
                                 </div>
-                                <div *ngIf="activeProgram" class="ps-2 ps-lg-5">
-                                    {{ program.price }}/fő
-                                </div>
-                                <div class="p-2">
-                                    <fa-icon class="p-2 text-info" ngbPopover="{{ program.description }}"
-                                        triggers="mouseenter:mouseleave" popoverTitle="{{ program.name }}"
-                                        [icon]="faInfoCircle"></fa-icon>
+                            </div>
+                            <div class="d-flex flex-wrap justify-content-center" *ngIf="!activePackage">
+                                <div *ngFor="let program of passiveProgramsToShow" class="form-check form-switch m-3 d-flex align-items-center border border-1 rounded-pill border-blue">
+                                    <div class="ps-2">
+                                        <input (change)="checkCheckbox($event, program)" class="form-check-input" type="checkbox"
+                                            id="flexSwitchCheckChecked" checked>
+                                        <label class="form-check-label" for="flexSwitchCheckChecked">{{ program.name }}</label>
+                                    </div>
+                                    <div *ngIf="!activePackage" class="ps-2 ps-lg-5">
+                                        {{ program.price.toLocaleString("hu") }}/fő
+                                    </div>
+                                    <div>
+                                        <fa-icon class="p-2 text-info fa-2x" ngbPopover="{{ program.description }}"
+                                            triggers="mouseenter:mouseleave" popoverTitle="{{ program.name }}"
+                                            [icon]="faInfoCircle"></fa-icon>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="d-flex flex-wrap justify-content-center" *ngIf="!activeProgram">
-                            <div *ngFor="let program of passiveProgramsToShow" class="form-check form-switch m-3 d-flex align-items-center border border-1 rounded-pill border-blue">
-                                <div class="ps-2">
-                                    <input (change)="checkCheckbox($event, program)" class="form-check-input" type="checkbox"
-                                        id="flexSwitchCheckChecked" checked>
-                                    <label class="form-check-label" for="flexSwitchCheckChecked">{{ program.name }}</label>
-                                </div>
-                                <div *ngIf="!activeProgram" class="ps-2 ps-lg-5">
-                                    {{ program.price }}/fő
-                                </div>
-                                <div>
-                                    <fa-icon class="p-2 text-info fa-2x" ngbPopover="{{ program.description }}"
-                                        triggers="mouseenter:mouseleave" popoverTitle="{{ program.name }}"
-                                        [icon]="faInfoCircle"></fa-icon>
-                                </div>
-                            </div>
+                        <div class="position-absolute bottom-0 end-0 text-end align-bottom p-2 text-blue fs-3 m-3">
+                            {{ fullPrice.toLocaleString("hu") }} Ft
                         </div>
                     </div>
                 </div>
@@ -234,21 +270,21 @@
                 <p>{{ packageDetails?.city }}</p>
                 <p>Választott időszak: {{ arriveDate | date:"MMM d" }} - {{ leaveDate | date:"MMM d" }}</p>
                 <p>Választott programok: </p>
-                <div class="d-flex flex-wrap justify-content-center" *ngIf="activeProgram">
+                <div class="d-flex flex-wrap justify-content-center" *ngIf="activePackage">
                     <div *ngFor="let program of activeProgramsToShow" class="m-2 d-flex align-items-center rounded-pill border-blue">
                         <div class="px-3 py-1 fs-6">
                             {{ program.name }}
                         </div>
                     </div>
                 </div>
-                <div class="d-flex flex-wrap justify-content-center" *ngIf="!activeProgram">
+                <div class="d-flex flex-wrap justify-content-center" *ngIf="!activePackage">
                     <div *ngFor="let program of passiveProgramsToShow" class="m-2 d-flex align-items-center rounded-pill border-blue">
                         <div class="px-3 py-1 fs-6">
                             {{ program.name }}
                         </div>
                     </div>
                 </div>
-                <p class="text-end h3 mb-0"><strong>{{ fullPrice }} Ft</strong></p>
+                <p class="text-end h3 mb-0"><strong>{{ fullPrice.toLocaleString("hu") }} Ft</strong></p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-orange" data-bs-dismiss="modal">Vissza</button>
