@@ -1,21 +1,16 @@
 <div class="container-fluid">
-    <main class="container col-lg-8">
+    <main class="container col-lg-9">
         <header class="container">
             <div class="row text-center">
-                <div class="col">
-                    <h1>{{ packageDetails?.name }}</h1>
+                <div class="col-lg-4 mt-4">
+                    <h1 class="h-100 align-middle">{{ packageDetails?.name }}</h1>
+                </div>
+                <div class="col-lg-8 p-0">
+                    <app-calendar-weather *ngIf="packageDetails" (clickEvent)="setDates($event)" [packageDetails]="packageDetails">
+                    </app-calendar-weather>
                 </div>
             </div>
         </header>
-        <app-calendar-weather *ngIf="packageDetails" (clickEvent)="setDates($event)" [packageDetails]="packageDetails">
-        </app-calendar-weather>
-        <section class="container">
-            <div class="row">
-                <div class="col">
-                    <p class="p-3">{{ packageDetails?.description }}</p>
-                </div>
-            </div>
-        </section>
         <section class="container p-0">
             <div class="row mt-3">
                 <div class="col m-auto">
@@ -25,65 +20,79 @@
                                 <ngb-carousel>
                                     <ng-template ngbSlide>
                                         <div>
-                                            <img style="width: 100%;"
+                                            <img class="w-100"
                                                 src="../../../assets/{{ packageDetails?.city }}/01.jpg"
                                                 alt="Random first slide">
                                         </div>
                                     </ng-template>
                                     <ng-template ngbSlide>
                                         <div>
-                                            <img style="width: 100%;"
+                                            <img class="w-100"
                                                 src="../../../assets/{{ packageDetails?.city }}/02.jpg"
                                                 alt="Random second slide">
                                         </div>
                                     </ng-template>
                                     <ng-template ngbSlide>
                                         <div>
-                                            <img style="width: 100%;"
+                                            <img class="w-100"
                                                 src="../../../assets/{{ packageDetails?.city }}/03.jpg"
                                                 alt="Random third slide">
+                                        </div>
+                                    </ng-template>
+                                    <ng-template ngbSlide>
+                                        <div>
+                                            <img class="w-100"
+                                                src="../../../assets/{{ packageDetails?.city }}/04.jpg"
+                                                alt="Random fourth slide">
+                                        </div>
+                                    </ng-template>
+                                    <ng-template ngbSlide>
+                                        <div>
+                                            <img class="w-100"
+                                                src="../../../assets/{{ packageDetails?.city }}/hotel.jpg"
+                                                alt="Random fifth slide">
                                         </div>
                                     </ng-template>
                                 </ngb-carousel>
                             </div>
                             <div class="col">
                                 <div *ngIf="packageDetails"
-                                    class="card-body p-0 h-100 fw-bold ps-lg-3 fs-6 d-flex align-items-center"
-                                    style="background-color: lightblue;">
+                                    class="card-body p-0 h-100 fw-bold ps-lg-3 fs-5 d-flex align-items-center"
+                                    style="background-color: rgb(231, 236, 238);">
                                     <div class="w-100">
                                         <div>
-                                            <div class="text-center">
-                                                <div class="mb-2">
+                                            <div class="text-center fw-bol">
+                                                <div class="my-2">
                                                     Válasszon csomagot
                                                 </div>
                                                 <div>
-                                                    <button (click)="activeProgram=true" mdbScrollspyLink="example-1"
-                                                        type="button" class="btn btn-success mx-2">Aktív</button>
-                                                    <button (click)="activeProgram=false" mdbScrollspyLink="example-1"
-                                                        type="button" class="btn btn-danger mx-2">Pihentető</button>
+                                                    <button (click)="activeProgram=true;calculateFullPrice()" mdbScrollspyLink="example-1"
+                                                        type="button" class="btn btn-blue mx-2">Aktív</button>
+                                                    <button (click)="activeProgram=false;calculateFullPrice()" mdbScrollspyLink="example-1"
+                                                        type="button" class="btn btn-orange mx-2">Pihentető</button>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="pt-3">
                                             <div class="d-flex align-items-center">
-                                                <fa-icon class="fa-2x text-primary p-2" [icon]="faPeopleArrows">fa
+                                                <fa-icon class="fa-2x text-orange p-2" [icon]="faPeopleArrows">fa
                                                 </fa-icon>
                                                 <button (click)="decreaseNumberOfPersons()"
                                                     style="width: 40px; height: 40px;" type="button"
-                                                    class="btn btn-danger mx-2">-</button>
+                                                    class="btn btn-blue mx-2">-</button>
                                                 <input style="width: 40px; height: 40px;" type="text"
                                                     value="{{ numberOfPersons }}"
                                                     class="form-control mx-2 p-1 text-center"
                                                     id="exampleInputPassword1">
                                                 <button (click)="increaseNumberOfPersons()"
                                                     style="width: 40px; height: 40px;" type="button"
-                                                    class="btn btn-success mx-2">+</button>
+                                                    class="btn btn-blue mx-2">+</button>
                                             </div>
                                         </div>
                                         <div>
                                             <div class="d-flex align-items-center">
                                                 <div>
-                                                    <fa-icon class="fa-2x text-primary p-2" [icon]="faCalendarCheck">fa
+                                                    <fa-icon class="fa-2x text-orange p-2" [icon]="faCalendarCheck">fa
                                                     </fa-icon>
                                                 </div>
                                                 <div>
@@ -98,7 +107,7 @@
                                         <div>
                                             <div class="d-flex align-items-center">
                                                 <div>
-                                                    <fa-icon class="fa-2x text-primary p-2" [icon]="faMapMarker">fa
+                                                    <fa-icon class="fa-2x text-orange p-2" [icon]="faMapMarker">fa
                                                     </fa-icon>
                                                 </div>
                                                 <div>
@@ -109,7 +118,7 @@
                                         <div>
                                             <div class="d-flex align-items-center">
                                                 <div>
-                                                    <fa-icon class="fa-2x text-primary p-2" [icon]="faHotel">fa
+                                                    <fa-icon class="fa-2x text-orange p-2" [icon]="faHotel">fa
                                                     </fa-icon>
                                                 </div>
                                                 <div>
@@ -120,7 +129,7 @@
                                         <div>
                                             <div class="d-flex align-items-center">
                                                 <div>
-                                                    <fa-icon class="fa-2x text-primary p-2" [icon]="faHamburger">fa
+                                                    <fa-icon class="fa-2x text-orange p-2" [icon]="faHamburger">fa
                                                     </fa-icon>
                                                 </div>
                                                 <div>
@@ -128,246 +137,122 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="text-end p-2" style="font-size: 38px; color: orange;">
+                                        <div class="text-end p-2 text-blue fs-3">
                                             {{ fullPrice }} Ft
                                         </div>
-                                        <div class="text-end p-2">
+                                        <div class="text-end text-danger p-2 fs-6">
                                             <div>
-                                                <small style="color: red;" *ngIf="!arriveDate">Nem adtad meg az indulás
+                                                <small *ngIf="!arriveDate">Nem adta meg az indulás
                                                     időpontját</small>
                                             </div>
-                                            <button class="btn btn-success px-4" data-bs-toggle="modal"
+                                            <button class="btn btn-orange px-4" data-bs-toggle="modal"
                                                 data-bs-target="#exampleModalCenter">Foglalás</button>
                                         </div>
                                     </div>
-                                    <!-- <table *ngIf="packageDetails" class="table table-primary table-striped h-100">
-                                        <tbody>
-                                            <tr>
-                                                <td>Választott idősszak</td>
-                                                <td class="text-end">
-                                                    <div>
-                                                        {{ packageDetails.days }} nap/{{ packageDetails.days - 1 }} éj
-                                                    </div>
-                                                    <div *ngIf="arriveDate">
-                                                        <small>{{ arriveDate | date:"MMM d" }} - {{ leaveDate |
-                                                            date:"MMM d" }}</small>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="pt-3">Utazók száma</td>
-                                                <td class="d-flex h-100 justify-content-end">
-                                                    <button (click)="decreaseNumberOfPersons()" style="width: 40px;"
-                                                        type="submit" class="btn btn-danger mx-2">-</button>
-                                                    <input style="width: 40px;" type="text"
-                                                        value="{{ numberOfPersons }}"
-                                                        class="form-control mx-2 p-1 text-center"
-                                                        id="exampleInputPassword1">
-                                                    <button (click)="increaseNumberOfPersons()" style="width: 40px;"
-                                                        type="submit" class="btn btn-success mx-2">+</button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Város</td>
-                                                <td class="text-end">{{ packageDetails?.city }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Szállás</td>
-                                                <td class="text-end">{{ packageDetails?.hotelName }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Ellátás</td>
-                                                <td class="text-end">{{ packageDetails?.meals }}</td>
-                                            </tr>
-                                            <tr *ngIf="fullPrice">
-                                                <td> Ár</td>
-                                                <td class="text-end">{{ fullPrice }} Ft</td>
-                                            </tr>
-                                            <tr>
-                                                <th colspan="2" class="text-end p-2">
-                                                    <div>
-                                                        <small style="color: red;" *ngIf="!arriveDate">Nem adtad meg az
-                                                            indulás
-                                                            időpontját</small>
-                                                    </div>
-                                                    <button class="btn btn-success px-4" data-bs-toggle="modal"
-                                                        data-bs-target="#exampleModalCenter">Foglalás</button>
-                                                </th>
-                                            </tr>
-                                        </tbody>
-                                    </table> -->
                                 </div>
                             </div>
-
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+        <section class="container">
+            <div class="row">
+                <div class="col p-0">
+                    <p class="py-3 fs-5">{{ packageDetails?.description }}</p>
                 </div>
             </div>
         </section>
         <div mdbScrollspyElement="scrollspy" id="example-1"></div>
-        <section class="container p-0 border border-1">
+        <section class="container p-0">
             <div class="row m-auto my-4">
-                <div class="p-0 m-0">
-                    <div class="d-flex flex-wrap justify-content-center" *ngIf="activeProgram">
-                        <div *ngFor="let program of activeProgramsToShow" class="form-check form-switch m-3 d-flex align-items-center border border-1 rounded-pill">
-                            <div class="ps-2">
-                                <input (change)="checkCheckbox($event, program)" class="form-check-input" type="checkbox"
-                                    id="flexSwitchCheckChecked" checked>
-                                <label class="form-check-label" for="flexSwitchCheckChecked">{{ program.name }}</label>
-                            </div>
-                            <div *ngIf="activeProgram" class="ps-2 ps-lg-5">
-                                {{ program.price }}/fő
-                            </div>
-                            <div>
-                                <fa-icon class="p-2 text-info fa-2x" ngbPopover="{{ program.description }}"
-                                    triggers="mouseenter:mouseleave" popoverTitle="{{ program.name }}"
-                                    [icon]="faInfoCircle"></fa-icon>
+                <h5 class="d-block p-0">Programok</h5>
+                <div class="col-lg-8 p-0 mt-3">
+                    <div class="col border border-1 rounded-2 h-100 d-flex align-items-center">
+                        <div class="d-flex flex-wrap justify-content-center" *ngIf="activeProgram">
+                            <div *ngFor="let program of activeProgramsToShow" class="form-check form-switch m-2 d-flex align-items-center rounded-pill border-blue">
+                                <div class="ps-2">
+                                    <input (change)="checkCheckbox($event, program)" class="form-check-input text-blue" type="checkbox"
+                                        id="flexSwitchCheckChecked" checked>
+                                    <label class="form-check-label" for="flexSwitchCheckChecked">{{ program.name }}</label>
+                                </div>
+                                <div *ngIf="activeProgram" class="ps-2 ps-lg-5">
+                                    {{ program.price }}/fő
+                                </div>
+                                <div class="p-2">
+                                    <fa-icon class="p-2 text-info" ngbPopover="{{ program.description }}"
+                                        triggers="mouseenter:mouseleave" popoverTitle="{{ program.name }}"
+                                        [icon]="faInfoCircle"></fa-icon>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="d-flex flex-wrap justify-content-center" *ngIf="!activeProgram">
-                        <div *ngFor="let program of passiveProgramsToShow" class="form-check form-switch m-3 d-flex align-items-center border border-1 rounded-pill">
-                            <div class="ps-2">
-                                <input (change)="checkCheckbox($event, program)" class="form-check-input" type="checkbox"
-                                    id="flexSwitchCheckChecked" checked>
-                                <label class="form-check-label" for="flexSwitchCheckChecked">{{ program.name }}</label>
-                            </div>
-                            <div *ngIf="!activeProgram" class="ps-2 ps-lg-5">
-                                {{ program.price }}/fő
-                            </div>
-                            <div>
-                                <fa-icon class="p-2 text-info fa-2x" ngbPopover="{{ program.description }}"
-                                    triggers="mouseenter:mouseleave" popoverTitle="{{ program.name }}"
-                                    [icon]="faInfoCircle"></fa-icon>
+                        <div class="d-flex flex-wrap justify-content-center" *ngIf="!activeProgram">
+                            <div *ngFor="let program of passiveProgramsToShow" class="form-check form-switch m-3 d-flex align-items-center border border-1 rounded-pill border-blue">
+                                <div class="ps-2">
+                                    <input (change)="checkCheckbox($event, program)" class="form-check-input" type="checkbox"
+                                        id="flexSwitchCheckChecked" checked>
+                                    <label class="form-check-label" for="flexSwitchCheckChecked">{{ program.name }}</label>
+                                </div>
+                                <div *ngIf="!activeProgram" class="ps-2 ps-lg-5">
+                                    {{ program.price }}/fő
+                                </div>
+                                <div>
+                                    <fa-icon class="p-2 text-info fa-2x" ngbPopover="{{ program.description }}"
+                                        triggers="mouseenter:mouseleave" popoverTitle="{{ program.name }}"
+                                        [icon]="faInfoCircle"></fa-icon>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- <div class="col-lg-6 m-md-auto m-lg-0">
-                    <table class="table table-primary table-striped h-100">
-                        <tbody>
-                            <tr class="text-center">
-                                <th colspan="2">
-                                    <button (click)="activeProgram=true" class="btn btn-success m-2">Mozognék
-                                        kicsit</button>
-                                    <button (click)="activeProgram=false" class="btn btn-danger m-2">Csak a
-                                        lazulás</button>
-                                </th>
-                            </tr>
-                            <tr *ngFor="let program of packageDetails?.options">
-                                <td *ngIf="program.activeActivity && activeProgram" class="py-3">
-                                    <div class="form-check form-switch mt-3">
-                                        <input (change)="checkCheckbox($event, program)" class="form-check-input"
-                                            type="checkbox" id="flexSwitchCheckChecked" checked>
-                                        <label class="form-check-label" for="flexSwitchCheckChecked">{{ program.name
-                                            }}</label>
-                                    </div>
-                                </td>
-                                <td *ngIf="!program.activeActivity && !activeProgram" class="py-3">
-                                    <div class="form-check form-switch">
-                                        <input (change)="checkCheckbox($event, program)" class="form-check-input"
-                                            type="checkbox" id="flexSwitchCheckChecked" checked>
-                                        <label class="form-check-label" for="flexSwitchCheckChecked">{{ program.name
-                                            }}</label>
-                                    </div>
-                                </td>
-                                <td *ngIf="program.activeActivity && activeProgram"
-                                    class="h-100 d-flex align-items-center justify-content-end">
-                                    {{ program.price }}/fő
-                                    <fa-icon class="p-2 text-info fa-2x" ngbPopover="{{ program.description }}"
-                                        triggers="mouseenter:mouseleave" popoverTitle="{{ program.name }}"
-                                        [icon]="faInfoCircle"></fa-icon>
-                                </td>
-                                <td *ngIf="!program.activeActivity && !activeProgram"
-                                    class="h-100 d-flex align-items-center justify-content-end">
-                                    {{ program.price }}/fő
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div> -->
-                <!-- <div class="col-lg-6 m-md-auto m-lg-0">
-                    <table *ngIf="packageDetails" class="table table-primary table-striped h-100">
-                        <tbody>
-                            <tr>
-                                <td>Választott idősszak</td>
-                                <td class="text-end">
-                                    <div>
-                                        {{ packageDetails.days }} nap/{{ packageDetails.days - 1 }} éj
-                                    </div>
-                                    <div *ngIf="arriveDate">
-                                        <small>{{ arriveDate | date:"MMM d" }} - {{ leaveDate | date:"MMM d" }}</small>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="pt-3">Utazók száma</td>
-                                <td class="d-flex h-100 justify-content-end">
-                                    <button (click)="decreaseNumberOfPersons()" style="width: 40px;" type="submit"
-                                        class="btn btn-danger mx-2">-</button>
-                                    <input style="width: 40px;" type="text" value="{{ numberOfPersons }}"
-                                        class="form-control mx-2 p-1 text-center" id="exampleInputPassword1">
-                                    <button (click)="increaseNumberOfPersons()" style="width: 40px;" type="submit"
-                                        class="btn btn-success mx-2">+</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Város</td>
-                                <td class="text-end">{{ packageDetails?.city }}</td>
-                            </tr>
-                            <tr>
-                                <td>Szállás</td>
-                                <td class="text-end">{{ packageDetails?.hotelName }}</td>
-                            </tr>
-                            <tr>
-                                <td>Ellátás</td>
-                                <td class="text-end">{{ packageDetails?.meals }}</td>
-                            </tr>
-                            <tr *ngIf="fullPrice">
-                                <td> Ár</td>
-                                <td class="text-end">{{ fullPrice }} Ft</td>
-                            </tr>
-                            <tr>
-                                <th colspan="2" class="text-end p-2">
-                                    <div>
-                                        <small style="color: red;" *ngIf="!arriveDate">Nem adtad meg az indulás
-                                            időpontját</small>
-                                    </div>
-                                    <button class="btn btn-success px-4" data-bs-toggle="modal"
-                                        data-bs-target="#exampleModalCenter">Foglalás</button>
-                                </th>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div> -->
+                <div class="col-lg-4 p-0 ps-lg-2 mt-3">
+                    <div class="col border border-1 rounded-2 p-2 text-center">
+                        <app-travel-planner [mapElement]="mapElement" [destination]="packageDetails?.city"></app-travel-planner>
+                    </div>
+                </div>
             </div>
         </section>
-        <app-travel-planner [destination]="packageDetails?.city"></app-travel-planner>
+        <section class="container">
+            <div class="row">
+                <div class="col p-0">
+                    <div #map class="rounded-end m-0" id="map"></div>
+                </div>
+            </div>
+        </section>
     </main>
 </div>
 
 <div *ngIf="arriveDate" class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
+        <div class="modal-content bg-general">
+            <div class="modal-header text-orange">
                 <h5 class="modal-title" id="exampleModalLongTitle">Foglalás részletei</h5>
             </div>
-            <div class="modal-body">
-                <p>Érkezés: {{ arriveDate | date:"MMM d" }} - Távozás{{ leaveDate | date:"MMM d" }}</p>
-                <p>{{ numberOfPersons }} fő</p>
+            <div class="modal-body fs-5">
+                <p>Foglalás {{ numberOfPersons }} fő részére</p>
+                <p>{{ packageDetails?.city }}</p>
+                <p>Választott időszak: {{ arriveDate | date:"MMM d" }} - {{ leaveDate | date:"MMM d" }}</p>
                 <p>Választott programok: </p>
-                <div *ngIf="activeProgram">
-                    <p *ngFor="let program of activePrograms">&emsp;- {{ program.name }}</p>
+                <div class="d-flex flex-wrap justify-content-center" *ngIf="activeProgram">
+                    <div *ngFor="let program of activeProgramsToShow" class="m-2 d-flex align-items-center rounded-pill border-blue">
+                        <div class="px-3 py-1 fs-6">
+                            {{ program.name }}
+                        </div>
+                    </div>
                 </div>
-                <div *ngIf="!activeProgram">
-                    <p *ngFor="let program of passivePrograms">&emsp;- {{ program.name }}</p>
+                <div class="d-flex flex-wrap justify-content-center" *ngIf="!activeProgram">
+                    <div *ngFor="let program of passiveProgramsToShow" class="m-2 d-flex align-items-center rounded-pill border-blue">
+                        <div class="px-3 py-1 fs-6">
+                            {{ program.name }}
+                        </div>
+                    </div>
                 </div>
-                <p class="text-end h3"><strong>{{ fullPrice }} Ft</strong></p>
+                <p class="text-end h3 mb-0"><strong>{{ fullPrice }} Ft</strong></p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Vissza</button>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                <button type="button" class="btn btn-orange" data-bs-dismiss="modal">Vissza</button>
+                <button type="button" class="btn btn-blue" data-bs-toggle="modal"
                     data-bs-target="#staticBackdrop">Megerősít</button>
             </div>
         </div>
@@ -377,17 +262,20 @@
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Foglalás megerősítése</h5>
-            </div>
-            <div class="modal-body">
-                Köszönjük foglalását! Várjuk szeretettel!
+        <div class="modal-content bg-general">
+            <div class="modal-body text-center">
+                <p class="text-orange fs-3">
+                    Köszönjük foglalását!
+                </p>
+                <p class="fs-5">
+                    Várja szeretettel Önöket a felfedezésre váró {{ packageDetails?.city}}. Jó utat kívánunk! 
+                </p>
             </div>
             <div class="modal-footer">
-                <button (click)="navigateBackToOffers()" type="button" class="btn btn-primary"
+                <button (click)="navigateBackToOffers()" type="button" class="btn btn-blue"
                     data-bs-toggle="modal">Vissza az ajánlatokra</button>
             </div>
         </div>
     </div>
 </div>
+
