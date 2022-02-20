@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BookedDate } from 'src/app/models/booked-date.model';
 import { PackageModel } from 'src/app/models/package.model';
@@ -33,6 +33,10 @@ export class DetailsComponent implements OnInit {
   faHamburger = faHamburger;
   faPeopleArrows = faPeopleArrows;
 
+  @ViewChild('map') mapElement?: ElementRef;
+  //public mapReference: HTMLElement = this.mapElement?.nativeElement;
+
+
   constructor(private activateRoute: ActivatedRoute, private packageService: PackageService, private router: Router) { }
 
   ngOnInit(): void {
@@ -54,8 +58,8 @@ export class DetailsComponent implements OnInit {
     programs.forEach(program => program.activeActivity ? this.activeProgramsToShow.push(program) : this.passiveProgramsToShow.push(program));
   }
 
-  public navigateBackToOffers(): void {
-    this.router.navigate(['offers']);
+  public navigateBackToHome(): void {
+    this.router.navigate(['']);
   }
 
   public initView(valami: any) {
@@ -86,20 +90,21 @@ export class DetailsComponent implements OnInit {
   }
 
   public calculateFullPrice() {
+    console.log(this.packageDetails?.price);
     this.packageDetails ? this.fullPrice = this.numberOfPersons * this.packageDetails.price : 0;
   }
 
   public increasePrice(price: number): void {
     if (this.packageDetails) {
       this.fullPrice += price * this.numberOfPersons
-      this.packageDetails.price += price;
+      //this.packageDetails.price += price;
     }
   }
 
   public decreasePrice(price: number): void {
     if (this.packageDetails) {
       this.fullPrice -= price * this.numberOfPersons
-      this.packageDetails.price -= price;
+      //this.packageDetails.price -= price;
     }  
   }
 

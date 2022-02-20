@@ -11,10 +11,11 @@ import { faCrosshairs } from '@fortawesome/free-solid-svg-icons'
 export class TravelPlannerComponent implements OnInit {
   
   @Input() destination?: string;
+  @Input() mapElement?: ElementRef;
 
-  @ViewChild('map') mapElement?: ElementRef;
   @ViewChild('clickedButton') clickedButton?: ElementRef;
-
+  
+  // @ViewChild('map') mapElement?: ElementRef;
   public mapReference: HTMLElement = this.mapElement?.nativeElement;
   public map: any;
   public marker?: GoogleMapsModule;

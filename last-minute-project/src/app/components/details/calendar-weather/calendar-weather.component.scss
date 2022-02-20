@@ -1,15 +1,11 @@
 .divWeatherMain{
     display: block;
     border-radius: 10px;
-    background: linear-gradient(180deg, rgb(243, 241, 226) 0%, rgb(207, 198, 96) 75%, rgb(206, 189, 1) 100%);
+    background: linear-gradient(180deg, rgb(229, 250, 253) 0%, rgba(72, 192, 215, 1) 100%);
     cursor: pointer;
     //border: 1px solid black;
     //width: 180px;
     //height: 220px;
-}
-
-#divWeatherMain {
-    background: red;
 }
 
 .date {
@@ -35,14 +31,5 @@
 
 .selected-date {
     //background: red;
-    border: 1px red solid;
-}
-
-// .non-selected-date {
-//     background-color: white;
-// }
-
-@keyframes cloudMovement{
-    from{margin-left: -55px;}
-    to{margin-left: 65px;}
+    border: 1px rgba(254, 116, 67, 1) solid;
 }
