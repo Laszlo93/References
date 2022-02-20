@@ -7,7 +7,7 @@
             "hotelName": "Pumukli Hotel",
             "meals": "Félpanzió",
             "city": "Siófok",
-            "price": 70000,
+            "price": 13000,
             "days": 3,
             "travelCar": true,
             "travelBus": true,
@@ -16,37 +16,68 @@
                 {
                     "name": "Túrázás",
                     "description": "Rövid leírás",
-                    "activeActivity": true
+                    "activeActivity": true,
+                    "price": 3000
                 },
                 {
                     "name": "Kajak-kenu",
                     "description": "Rövid leírás",
-                    "activeActivity": true
+                    "activeActivity": true,
+                    "price": 3000
+                },
+                {
+                    "name": "Bobozás",
+                    "description": "Rövid leírás",
+                    "activeActivity": true,
+                    "price": 3000
+                },
+                {
+                    "name": "Bowling verseny",
+                    "description": "Rövid leírás",
+                    "activeActivity": true,
+                    "price": 3000
+                },
+                {
+                    "name": "Quad túra",
+                    "description": "Rövid leírás",
+                    "activeActivity": true,
+                    "price": 3000
                 },
                 {
                     "name": "Vitorlázás",
                     "description": "Rövid leírás",
-                    "activeActivity": true
+                    "activeActivity": true,
+                    "price": 3000
                 },
                 {
                     "name": "Éjszakai túrázás",
                     "description": "Rövid leírás",
-                    "activeActivity": true
-                },
-                {
-                    "name": "Svédmasszázs",
-                    "description": "Rövid leírás",
-                    "activeActivity": false
+                    "activeActivity": true,
+                    "price": 3000
                 },
                 {
                     "name": "Galerius Élményfürdő és Wellness Központ kedvezményes belépő a szálloda vendégeinek részére",
                     "description": "Rövid leírás",
-                    "activeActivity": false
+                    "activeActivity": false,
+                    "price": 4000
                 },
                 {
                     "name": "Romantikus vacsora 2 fő részére",
                     "description": "Rövid leírás",
-                    "activeActivity": false
+                    "activeActivity": false,
+                    "price": 4000
+                },
+                {
+                    "name": "Romantikus vacsora 2 fő részére",
+                    "description": "Rövid leírás",
+                    "activeActivity": false,
+                    "price": 4000
+                },
+                {
+                    "name": "Svédmasszázs",
+                    "description": "Rövid leírás",
+                    "activeActivity": false,
+                    "price": 4000
                 }
             ],
             "quantity": 1
@@ -58,7 +89,7 @@
             "hotelName": "Pumukli Hotel",
             "meals": "Reggeli az árban",
             "city": "Tihany",
-            "price": 56000,
+            "price": 10000,
             "days": 2,
             "travelCar": true,
             "travelBus": true,
@@ -67,32 +98,38 @@
                 {
                     "name": "Kajak-kenu",
                     "description": "Rövid leírás",
-                    "activeActivity": true
+                    "activeActivity": true,
+                    "price": 3000
                 },
                 {
                     "name": "Vitorlázás",
                     "description": "Rövid leírás",
-                    "activeActivity": true
+                    "activeActivity": true,
+                    "price": 3000
                 },
                 {
                     "name": "Éjszakai horgászat",
                     "description": "Rövid leírás",
-                    "activeActivity": true
+                    "activeActivity": true,
+                    "price": 3000
                 },
                 {
                     "name": "Svédmasszázs",
                     "description": "Rövid leírás",
-                    "activeActivity": false
+                    "activeActivity": false,
+                    "price": 4000
                 },
                 {
                     "name": "Aqua Élményfürdő és Wellness Központ kedvezményes belépő a szálloda vendégeinek részére",
                     "description": "Rövid leírás",
-                    "activeActivity": false
+                    "activeActivity": false,
+                    "price": 4000
                 },
                 {
                     "name": "Romantikus vacsora 2 fő részére",
                     "description": "Rövid leírás",
-                    "activeActivity": false
+                    "activeActivity": false,
+                    "price": 4000
                 }
             ],
             "quantity": 2
@@ -105,7 +142,7 @@
             "hotelName": "Kuckó Hotel",
             "meals": "Félpanzió",
             "city": "Veszprém",
-            "price": 95000,
+            "price": 18000,
             "days": 3,
             "travelCar": true,
             "travelBus": true,
@@ -114,37 +151,44 @@
                 {
                     "name": "Golf a Balatonudvariban található Royal Balaton Golf és Yacht Clubban",
                     "description": "Rövid leírás",
-                    "activeActivity": true
+                    "activeActivity": true,
+                    "price": 3000
                 },
                 {
                     "name": "Libegőzés Eplényben",
                     "description": "Rövid leírás",
-                    "activeActivity": true
+                    "activeActivity": true,
+                    "price": 3000
                 },
                 {
                     "name": "Balatoni bob",
                     "description": "Rövid leírás",
-                    "activeActivity": true
+                    "activeActivity": true,
+                    "price": 3000
                 },
                 {
                     "name": "Lovaglás a közeli Nemesvámoson",
                     "description": "Rövid leírás",
-                    "activeActivity": true
+                    "activeActivity": true,
+                    "price": 3000
                 },
                 {
                     "name": "Svédmasszázs",
                     "description": "Rövid leírás",
-                    "activeActivity": false
+                    "activeActivity": false,
+                    "price": 4000
                 },
                 {
                     "name": "Veszprémi Élményfürdő és Wellness Központ kedvezményes belépő a szálloda vendégeinek részére",
                     "description": "Rövid leírás",
-                    "activeActivity": false
+                    "activeActivity": false,
+                    "price": 4000
                 },
                 {
                     "name": "Romantikus vacsora 2 fő részére",
                     "description": "Rövid leírás",
-                    "activeActivity": false
+                    "activeActivity": false,
+                    "price": 4000
                 }
             ],
             "quantity": 2

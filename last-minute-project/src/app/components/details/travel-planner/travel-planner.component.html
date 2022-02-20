@@ -1,52 +1,60 @@
-<div class="card mb-3">
-    <div class="row g-0 h-100">
-        <div class="col-lg-5">
-            <div class="card-body text-center">
-                <h5 class="card-title">Útvonal és költségkalkulátor</h5>
-                <div class="row d-flex justify-content-around mt-4 m-auto">
-                    <div class="col-lg-8">
-                        <input [(ngModel)]="origin" type="email" class="form-control"
-                            id="exampleInputEmail1" value="{{ origin }}" aria-describedby="emailHelp"
-                            placeholder="Indulás helye...">
+<section class="container mt-3 p-0">
+    <div class="card mb-3">
+        <div class="row g-0 h-100">
+            <div class="col-lg-5">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Útvonal és költségkalkulátor</h5>
+                    <div class="row d-flex justify-content-around mt-4 m-auto">
+                        <div class="col-lg-8">
+                            <div class="input-group mb-3">
+                                <input [(ngModel)]="origin" value="{{ origin }}" type="text" class="form-control"
+                                    placeholder="Indulás helye...">
+                                <button (click)="ngOnInit()" class="btn btn-outline-secondary" id="button-addon2">
+                                    <fa-icon [icon]="faCrosshairs"></fa-icon>
+                                </button>
+                                <div *ngIf="!enabledGeolocation" id="emailHelp" class="form-text">Engedélyezd a helymeghatározást vagy írd be a
+                                    kiindulás helyét</div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <button (click)="initMap()" class="btn btn-success" type="button">Számol</button>
+                        </div>
                     </div>
-                    <div class="col-lg-4">
-                        <button (click)="initMap()" class="btn btn-success" type="button">Számol</button>
+                    <div class="row mt-3">
+                        <img *ngIf="!isClicked" src="https://c.tenor.com/Qj-ntiXKOjcAAAAC/bts-travel.gif"
+                            class="img-fluid rounded mt-4" alt="..." style="width: 100%;">
+                        <table *ngIf="isClicked" class="table table-primary table-striped m-auto">
+                            <tbody>
+                                <tr>
+                                    <td class="text-start">Kiindulópont</td>
+                                    <td class="text-end">{{ splittedOrigin[0] }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-start">Úticél</td>
+                                    <td class="text-end">{{ destination }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-start">Távolság</td>
+                                    <td class="text-end">{{ distance }} km</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-start">Idő</td>
+                                    <td class="text-end">{{ duration }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-start">Költség(oda-vissza)</td>
+                                    <td class="text-end">{{ cost }} Ft</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
+                    <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
                 </div>
-                <div class="row mt-3">
-                    <img *ngIf="!isClicked" src="https://c.tenor.com/Qj-ntiXKOjcAAAAC/bts-travel.gif"
-                        class="img-fluid rounded mt-4" alt="..." style="width: 100%;">
-                    <table *ngIf="isClicked" class="table table-primary table-striped m-auto">
-                        <tbody>
-                            <tr>
-                                <td class="text-start">Kiindulópont</td>
-                                <td class="text-end">{{ splittedOrigin[0] }}</td>
-                            </tr>
-                            <tr>
-                                <td class="text-start">Úticél</td>
-                                <td class="text-end">{{ destination }}</td>
-                            </tr>
-                            <tr>
-                                <td class="text-start">Távolság</td>
-                                <td class="text-end">{{ distance }} km</td>
-                            </tr>
-                            <tr>
-                                <td class="text-start">Idő</td>
-                                <td class="text-end">{{ duration }}</td>
-                            </tr>
-                            <tr>
-                                <td class="text-start">Költség(oda-vissza)</td>
-                                <td class="text-end">{{ cost }} Ft</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+            </div>
+            <div class="col-lg-7">
+                <div #map class="rounded-end m-0" id="map"></div>
+                <!-- <img src="..." class="img-fluid rounded-start" alt="..."> -->
             </div>
         </div>
-        <div class="col-lg-7">
-            <div #map class=" rounded-end" id="map"></div>
-            <!-- <img src="..." class="img-fluid rounded-start" alt="..."> -->
-        </div>
     </div>
-</div>
+</section>
