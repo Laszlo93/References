@@ -118,10 +118,10 @@
         <div class="col-10">
             <div class="row align-items-center">
                 <div class="col-3 text-md-end">
-                    <label for="login-email"> Program leírása:</label>
+                    <label for="options-name"> Program neve:</label>
                 </div>
                 <div class="col-9">
-                    <input type="text" class="form-control" id="login-email">
+                    <input type="text" class="form-control" id="options-name" name="optionsName" #optionsName="ngModel" placeholder="" [(ngModel)]="travelPackage.options[0].name">
                 </div>
             </div>
         </div>
@@ -131,14 +131,29 @@
         <div class="col-10">
             <div class="row align-items-center">
                 <div class="col-3 text-md-end">
-                    <label for="login-email"> Ár:</label>
+                    <label for="options-description"> Program leírása:</label>
                 </div>
                 <div class="col-9">
-                    <input type="text" class="form-control" id="login-email">
+                    <input type="text" class="form-control" id="options-description" name="optionsDescription" #optionsDescription="ngModel" placeholder="" [(ngModel)]="travelPackage.options[0].description">
                 </div>
             </div>
         </div>
     </div>
+
+    <div class="row d-flex justify-content-center mt-3">
+        <div class="col-10">
+            <div class="row align-items-center">
+                <div class="col-3 text-md-end">
+                    <label for="options-price"> Program ára:</label>
+                </div>
+                <div class="col-9">
+                    <input type="text" class="form-control" id="options-price" name="optionsPrice" #optionsPrice="ngModel" placeholder="" [(ngModel)]="travelPackage.options[0].price">
+                </div>
+            </div>
+        </div>
+    </div>
+
+  
 
     <div class="row d-flex justify-content-center mt-3">
         <div class="col-10 text-md-end">

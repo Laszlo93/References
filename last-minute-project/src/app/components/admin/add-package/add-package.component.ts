@@ -25,6 +25,7 @@ export class AddPackageComponent implements OnInit {
     options: [{
       name: "",
       description: "",
+      price: 0,
       activeActivity: true
     }],
     quantity: 0
