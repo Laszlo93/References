@@ -29,6 +29,16 @@ export class PackageService {
     )
   }
 
+  public getOffers(): Observable<PackageModel[]> {
+    const postsCollection = this.afs.collection<PackageModel>("packages", ref => ref.limit(4));
+    return postsCollection.get().pipe(
+      map((packages) => packages.docs.map((onePackage) => {
+        const convertedPost: PackageModel = onePackage.data();
+        return convertedPost;
+      }))
+    )
+  }
+
   // public getPackage(packageName: string): Observable<PackageModel[]> {
   //   return this.http.get<PackageModel[]>(`${this.PACKAGE_URL}/?name=${packageName}`);
   // }

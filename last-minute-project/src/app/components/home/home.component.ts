@@ -10,8 +10,7 @@ import { PackageService } from 'src/app/services/package.service'
 })
 export class HomeComponent implements OnInit {
 
-  public travelPackages: PackageModel[] = [];
-  public selectedPackages: PackageModel[] = [];
+  public offers: PackageModel[] = [];
 
   public inputValue: string = "Visegrád";
   public canSubmit: boolean = true;
@@ -19,10 +18,9 @@ export class HomeComponent implements OnInit {
   constructor(private packageService: PackageService, private router: Router) { }
 
   ngOnInit(): void {
-    this.packageService.getPackages().subscribe({
+    this.packageService.getOffers().subscribe({
       next: (packages: PackageModel[]) => {
-        this.travelPackages = packages;
-        this.selectedPackages = packages
+        this.offers = packages
       },
       error: (e) => console.log(e),
       complete: () => console.log('Done')
