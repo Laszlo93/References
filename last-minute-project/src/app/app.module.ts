@@ -30,6 +30,7 @@ import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
 import { AddPackageComponent } from './components/admin/add-package/add-package.component';
 import { ToastrModule } from 'ngx-toastr';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { ListPackagesComponent } from './components/admin/list-packages/list-packages.component';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     PageNotFoundComponent,
     RegisterComponent,
     AdminComponent,
-    AddPackageComponent
+    AddPackageComponent,
+    ListPackagesComponent
   ],
   imports: [
     BrowserModule,
