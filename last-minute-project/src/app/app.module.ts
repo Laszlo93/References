@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { GoogleMapsModule } from '@angular/google-maps';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MdbScrollspyModule } from 'mdb-angular-ui-kit/scrollspy';
 
@@ -28,6 +28,8 @@ import {AngularFireModule} from "@angular/fire/compat";
 import {AngularFireAnalyticsModule} from "@angular/fire/compat/analytics";
 import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
 import { AddPackageComponent } from './components/admin/add-package/add-package.component';
+import { ToastrModule } from 'ngx-toastr';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 
 @NgModule({
@@ -48,6 +50,7 @@ import { AddPackageComponent } from './components/admin/add-package/add-package.
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     GoogleMapsModule,
@@ -60,8 +63,9 @@ import { AddPackageComponent } from './components/admin/add-package/add-package.
     // provideFirestore(() => getFirestore())
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAnalyticsModule,
-    AngularFirestoreModule
-
+    AngularFirestoreModule,
+    ReactiveFormsModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
