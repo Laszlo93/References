@@ -37,6 +37,8 @@ export class RegisterComponent implements OnInit {
       const userData = await createUserWithEmailAndPassword(this.fireAuth, this.regForm.value.regEmail, this.regForm.value.regPassword);
       console.log(userData);
       this.toastr.success('You have registrated successfully.', 'Success');
+      this.regForm.reset();
+      // this.router.navigate(['login'])
 
     } catch (e) {
       console.log(e);

@@ -1,1 +1,28 @@
-<p>list-packages works!</p>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Csomag neve</th>
+        <th scope="col">Város</th>
+        <th scope="col">Szállás neve</th>
+        <th scope="col">Ellátás</th>
+        <th scope="col">Napok száma</th>
+        <th scope="col">Elérhető mennyiség</th>
+        <th scope="col">Ár</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let package of packages | async; let i = index">
+        <th scope="row">{{i+1}}</th>
+        <td>{{package.name}}</td>
+        <td>{{package.city}}</td>
+        <td>{{package.hotelName}}</td>
+        <td>{{package.meals}}</td>
+        <td>{{package.days}}</td>
+        <td>{{package.quantity}}</td>
+        <td (click)="delete()">{{package.price}}</td>
+      </tr>
+      
+    </tbody>
+  </table>
+ 
