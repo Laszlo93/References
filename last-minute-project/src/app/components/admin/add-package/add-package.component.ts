@@ -62,15 +62,15 @@ export class AddPackageComponent implements OnInit {
   // }
 
   onClickSubmit(data:any){
-    const optionsPackage: ProgramModel = {
+    
+    if(data.programQuantity !==0 || data.programQuantity.length < 1){
+      for (let i = 0; i < data.programQuantity-1; i++) {
+        let optionsPackage: ProgramModel = {
           name: "",
           description: "",
           price: 0,
           activeActivity: true
         }
-
-      if(data.programQuantity !==0 || data.programQuantity.length < 1){
-      for (let i = 0; i < data.programQuantity-1; i++) {
         this.items = [...this.items, this.items.length];
         this.travelPackage.options.push(optionsPackage);
       }
