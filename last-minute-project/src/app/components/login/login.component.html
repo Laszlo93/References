@@ -35,13 +35,18 @@
     </form>
     <div class="row  d-flex justify-content-center">
         <div class="col-md-6 text-end">
-            <!-- <p class="text-muted">vagy bejelentkezés Google fiókkal <button class="btn btn-danger mt-2" (click)="loginWithGoogle()" type="button">Google</button> </p> -->
         </div>
     </div>
     <div class="row  d-flex justify-content-center align-items-center">
         <div class="col-md-6 text-end">
             <hr>
-            <p class="text-muted">Még nincs felhasználói fiókja? <a routerLink="../register" routerLinkActive="active">Készítsen egyet</a></p><p class=" text-align-center stext-muted">vagy jelentkezzen be Google fiókjával <button class="btn btn-danger mt-2" (click)="loginWithGoogle()" type="button">Google</button></p>
+            <p class="text-muted">Még nincs felhasználói fiókja? <a routerLink="../register" routerLinkActive="active">Készítsen egyet</a></p>
+        </div>
+    </div>
+    <div class="row  d-flex justify-content-center align-items-center">
+        <div class="col-12 col-md-6 text-md-end">
+            <p class="d-inline text-muted">vagy jelentkezzen be Google fiókjával </p>
+            <button class="d-inline btn btn-danger text-md-end" (click)="loginWithGoogle()" type="button">Google bejelentkezés</button>
         </div>
     </div>
 </div>

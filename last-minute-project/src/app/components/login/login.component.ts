@@ -37,12 +37,12 @@ export class LoginComponent implements OnInit {
     signInWithEmailAndPassword(this.fireAuth, this.loginForm.value.email, this.loginForm.value.password)
       .then((userData) => {
         console.log(userData);
-        this.toastr.success('You logged in successfully.', 'Success');
+        this.toastr.success('Sikeresen bejelentkeztél.', 'Success');
         this.router.navigate(['']);
       })
       .catch((e) => {
         console.log(e);
-        this.toastr.error('Email or password is incorrect!', 'Error');
+        this.toastr.error('Az email cím, vagy a jelszó helytelen!', 'Error');
       })
   }
 
@@ -54,7 +54,7 @@ export class LoginComponent implements OnInit {
           console.log(userData.user?.email);
           console.log(userData.user?.uid);
           console.log(userData.user?.emailVerified);
-          this.toastr.success('You logged in successfully.', 'Success');
+          this.toastr.success('Sikeresen bejelentkeztél.', 'Success');
           this.router.navigate(['']);
       })
       .catch((e) => console.log(e))
