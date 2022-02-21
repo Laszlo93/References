@@ -4,6 +4,8 @@
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
 
+@import '~ngx-toastr/toastr.css';
+
 body {
     background-color: #e7f3f5;
 }
