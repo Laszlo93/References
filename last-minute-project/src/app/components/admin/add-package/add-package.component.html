@@ -190,14 +190,14 @@
             <div class="col-10">
                 <div class="row align-items-center">
                     <div class="col-3 text-md-end">
-                        <label for="'options-name'+i"> Program neve:</label>
+                        <label [for]="'options-name'+i"> Program neve:</label>
                     </div>
                     <div class="col-9">
                         <input 
                             type="text" 
                             class="form-control" 
-                            id="'options-name'+i" 
-                            name="optionsName" 
+                            [id]="'options-name'+i" 
+                            [name]="'optionsName'+i" 
                             #optionsName="ngModel" 
                             placeholder="" 
                             [(ngModel)]="travelPackage.options[i].name">
@@ -213,17 +213,38 @@
             <div class="col-10">
                 <div class="row align-items-center">
                     <div class="col-3 text-md-end">
-                        <label for="'options-description'+i"> Program leírása:</label>
+                        <label [for]="'options-description'+i"> Program leírása:</label>
                     </div>
                     <div class="col-9">
                         <input 
                         type="text" 
                         class="form-control" 
-                        id="'options-description'+i" 
-                        name="'optionsDescription'+i" 
+                        [id]="'options-description'+i" 
+                        [name]="'optionsDescription'+i" 
                         #optionsDescription="ngModel" 
                         placeholder="" 
                         [(ngModel)]="travelPackage.options[i].description">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row d-flex justify-content-center mt-3" *ngIf="isShown">
+            <div class="col-10">
+                <div class="row align-items-center">
+                    <div class="col-3 text-md-end">
+                        <label [for]="'active-activity'+i"> Aktív kikapcsolódás?</label>
+                    </div>
+                    <div class="col-9">
+                        <input 
+                        type="checkbox" 
+                        class="form-check-input" 
+                        [id]="'active-activity'+i" 
+                        [name]="'activeActivity'+i" 
+                        #activeActivity="ngModel"
+                        checked 
+                        placeholder="" 
+                        [(ngModel)]="travelPackage.options[i].activeActivity">
                     </div>
                 </div>
             </div>
@@ -233,13 +254,13 @@
             <div class="col-10">
                 <div class="row align-items-center">
                     <div class="col-3 text-md-end">
-                        <label for="'options-price'+i"> Program ára:</label>
+                        <label [for]="'options-price'+i"> Program ára:</label>
                     </div>
                     <div class="col-9">
                         <input type="number" 
                         class="form-control" 
-                        id="'options-price'+i" 
-                        name="'optionsPrice'+i" 
+                        [id]="'options-price'+i" 
+                        [name]="'optionsPrice'+i" 
                         #optionsPrice="ngModel" 
                         placeholder="" [(ngModel)]="travelPackage.options[i].price">
                     </div>
