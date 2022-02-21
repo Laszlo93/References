@@ -19,7 +19,7 @@ export class GoogleDirectionService {
               {
                 origin: origin,
                 destination: destination,
-                travelMode: google.maps.TravelMode.TRANSIT,
+                travelMode: google.maps.TravelMode.DRIVING,
                 transitOptions: {
                   modes: [google.maps.TransitMode.BUS],
                   routingPreference: google.maps.TransitRoutePreference.FEWER_TRANSFERS
