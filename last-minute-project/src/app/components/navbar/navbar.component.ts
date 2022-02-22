@@ -18,7 +18,6 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     this.auth.user.subscribe({
       next: (user) => {
-        console.log("A user email címe:" + user?.email);
         if(user){
           this.loggedInStatus = true;
           if(user?.email === "admin@admin.com"){

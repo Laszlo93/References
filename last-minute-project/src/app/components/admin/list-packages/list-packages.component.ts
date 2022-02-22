@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { PackageModel } from 'src/app/models/package.model';
+import { PackageService } from 'src/app/services/package.service';
 
 @Component({
   selector: 'app-list-packages',
@@ -7,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListPackagesComponent implements OnInit {
 
-  constructor() { }
+  public packages?: Observable<PackageModel[]>
+  public package?: PackageModel
+
+  constructor(private packageService: PackageService) { };
 
   ngOnInit(): void {
+    this.packages = this.packageService.getPackages();
   }
+
+  
 
 }
