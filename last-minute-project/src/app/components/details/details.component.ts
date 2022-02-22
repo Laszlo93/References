@@ -5,6 +5,7 @@ import { PackageModel } from 'src/app/models/package.model';
 import { ProgramModel } from 'src/app/models/program.model';
 import { PackageService } from 'src/app/services/package.service';
 import { faInfo, faInfoCircle, faMapMarker, faCalendarCheck, faHotel, faHamburger, faPeopleArrows} from '@fortawesome/free-solid-svg-icons'
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 @Component({
   selector: 'app-details',
@@ -26,6 +27,7 @@ export class DetailsComponent implements OnInit {
   public passiveProgramsToShow: Array<ProgramModel> = [];
   public activeChecked: boolean = true;
   public passiveChecked?: boolean;
+  public isLogged: boolean = false;
 
   faInfo = faInfo;
   faInfoCircle = faInfoCircle;
@@ -39,7 +41,7 @@ export class DetailsComponent implements OnInit {
   //public mapReference: HTMLElement = this.mapElement?.nativeElement;
 
 
-  constructor(private activateRoute: ActivatedRoute, private packageService: PackageService, private router: Router) { }
+  constructor(private activateRoute: ActivatedRoute, private packageService: PackageService, private router: Router, private auth: AngularFireAuth) { }
 
   ngOnInit(): void {
     this.activateRoute.paramMap.subscribe(param => {
@@ -130,6 +132,17 @@ export class DetailsComponent implements OnInit {
     this.activePackage = false;
     this.activeChecked = false;
     this.passiveChecked = true;
+  }
+
+  public checkUser(): void {
+    this.auth.user.subscribe(user => {
+      if (user) {
+        this.isLogged = true;
+      } else {
+        this.isLogged = false;
+        this.router.navigate(['login']);
+      }
+    });
   }
 
 }
