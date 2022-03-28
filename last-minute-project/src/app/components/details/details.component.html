@@ -6,8 +6,7 @@
                     <h1 class="h-100 align-middle">{{ packageDetails?.name }}</h1>
                 </div>
                 <div class="col-xl-8 p-0">
-                    <app-calendar-weather *ngIf="packageDetails" (clickEvent)="setDates($event)" [packageDetails]="packageDetails">
-                    </app-calendar-weather>
+                    <app-calendar-weather *ngIf="packageDetails" (clickEvent)="setDates($event)" [packageDetails]="packageDetails" mdbScrollspyElement="scrollspy" id="datepicker"></app-calendar-weather>
                 </div>
             </div>
         </header>
@@ -133,17 +132,17 @@
                                                         <label class="form-check-label" for="flexRadioDefault1">
                                                             Aktív
                                                         </label>
-                                                        <input (change)="isActivePackage();calculateFullPrice()" mdbScrollspyLink="example-1" class="form-check-input" type="radio" id="flexRadioDefault1" [checked]="activeChecked">
+                                                        <input (change)="isActivePackage();calculateFullPrice()" mdbScrollspyLink="programs" class="form-check-input" type="radio" id="flexRadioDefault1" [checked]="activeChecked">
                                                     </div>
                                                     <div class="form-check m-2">
                                                         <label class="form-check-label" for="flexRadioDefault2">
                                                             Pihentető
                                                         </label>
-                                                        <input (change)="isPassivePackage();calculateFullPrice()" mdbScrollspyLink="example-1" class="form-check-input" type="radio" id="flexRadioDefault2" [checked]="passiveChecked">
+                                                        <input (change)="isPassivePackage();calculateFullPrice()" mdbScrollspyLink="programs" class="form-check-input" type="radio" id="flexRadioDefault2" [checked]="passiveChecked">
                                                     </div>
-                                                    <!-- <button (click)="activePackage=true;calculateFullPrice()" mdbScrollspyLink="example-1"
+                                                    <!-- <button (click)="activePackage=true;calculateFullPrice()" mdbScrollspyLink="programs"
                                                         type="button" class="btn btn-blue mx-2">Aktív</button>
-                                                    <button (click)="activePackage=false;calculateFullPrice()" mdbScrollspyLink="example-1"
+                                                    <button (click)="activePackage=false;calculateFullPrice()" mdbScrollspyLink="programs"
                                                         type="button" class="btn btn-orange mx-2">Pihentető</button> -->
                                                 </div>
                                             </div>
@@ -156,7 +155,7 @@
                                                 <small *ngIf="!arriveDate">Nem adta meg az indulás
                                                     időpontját</small>
                                             </div> -->
-                                            <button *ngIf="!arriveDate" ngbPopover="Kérlek válaszd ki, hogy mikor utaznál"
+                                            <button *ngIf="!arriveDate" mdbScrollspyLink="datepicker" ngbPopover="Kérlek válaszd ki, hogy mikor utaznál"
                                                 triggers="mouseenter:mouseleave" class="btn btn-orange px-4" data-bs-target="#exampleModalCenter">
                                                 Foglalás
                                             </button>
@@ -179,7 +178,7 @@
                 </div>
             </div>
         </section>
-        <div mdbScrollspyElement="scrollspy" id="example-1"></div>
+        <div mdbScrollspyElement="scrollspy" id="programs"></div>
         <section class="container p-0">
             <div class="row m-auto my-4">
                 <h5 class="d-block p-0">Programok</h5>
