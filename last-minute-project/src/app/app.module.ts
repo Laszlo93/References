@@ -32,7 +32,6 @@ import { ToastrModule } from 'ngx-toastr';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { ListPackagesComponent } from './components/admin/list-packages/list-packages.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,7 +48,7 @@ import { ListPackagesComponent } from './components/admin/list-packages/list-pac
     AdminComponent,
     AddPackageComponent,
     ListPackagesComponent
-  ],
+    ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

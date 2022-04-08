@@ -61,8 +61,7 @@
                                     <div class="w-100">
                                         <div class="pt-3">
                                             <div class="d-flex align-items-center">
-                                                <fa-icon class="fa-2x text-orange p-2" [icon]="faPeopleArrows">fa
-                                                </fa-icon>
+                                                <fa-icon class="fa-2x text-orange p-2" [icon]="faPeopleArrows"></fa-icon>
                                                 <button (click)="decreaseNumberOfPersons()"
                                                     style="width: 40px; height: 40px;" type="button"
                                                     class="btn btn-blue mx-2">-</button>
@@ -78,8 +77,7 @@
                                         <div>
                                             <div class="d-flex align-items-center">
                                                 <div>
-                                                    <fa-icon class="fa-2x text-orange p-2" [icon]="faCalendarCheck">fa
-                                                    </fa-icon>
+                                                    <fa-icon class="fa-2x text-orange p-2" [icon]="faCalendarCheck"></fa-icon>
                                                 </div>
                                                 <div>
                                                     {{ packageDetails.days }} nap/{{ packageDetails.days - 1 }} éj
@@ -92,8 +90,7 @@
                                         <div>
                                             <div class="d-flex align-items-center">
                                                 <div>
-                                                    <fa-icon class="fa-2x text-orange p-2" [icon]="faMapMarker">fa
-                                                    </fa-icon>
+                                                    <fa-icon class="fa-2x text-orange p-2" [icon]="faMapMarker"></fa-icon>
                                                 </div>
                                                 <div>
                                                     {{ packageDetails.city }}
@@ -103,8 +100,7 @@
                                         <div>
                                             <div class="d-flex align-items-center">
                                                 <div>
-                                                    <fa-icon class="fa-2x text-orange p-2" [icon]="faHotel">fa
-                                                    </fa-icon>
+                                                    <fa-icon class="fa-2x text-orange p-2" [icon]="faHotel"></fa-icon>
                                                 </div>
                                                 <div>
                                                     {{ packageDetails.hotelName }}
@@ -114,8 +110,7 @@
                                         <div>
                                             <div class="d-flex align-items-center">
                                                 <div>
-                                                    <fa-icon class="fa-2x text-orange p-2" [icon]="faHamburger">fa
-                                                    </fa-icon>
+                                                    <fa-icon class="fa-2x text-orange p-2" [icon]="faHamburger"></fa-icon>
                                                 </div>
                                                 <div>
                                                     {{ packageDetails.meals }}
@@ -140,10 +135,6 @@
                                                         </label>
                                                         <input (change)="isPassivePackage();calculateFullPrice()" mdbScrollspyLink="programs" class="form-check-input" type="radio" id="flexRadioDefault2" [checked]="passiveChecked">
                                                     </div>
-                                                    <!-- <button (click)="activePackage=true;calculateFullPrice()" mdbScrollspyLink="programs"
-                                                        type="button" class="btn btn-blue mx-2">Aktív</button>
-                                                    <button (click)="activePackage=false;calculateFullPrice()" mdbScrollspyLink="programs"
-                                                        type="button" class="btn btn-orange mx-2">Pihentető</button> -->
                                                 </div>
                                             </div>
                                         </div>
@@ -151,10 +142,6 @@
                                             {{ fullPrice.toLocaleString("hu") }} Ft
                                         </div>
                                         <div class="text-end text-danger p-2 fs-6">
-                                            <!-- <div>
-                                                <small *ngIf="!arriveDate">Nem adta meg az indulás
-                                                    időpontját</small>
-                                            </div> -->
                                             <button *ngIf="!arriveDate" mdbScrollspyLink="datepicker" ngbPopover="Kérlek válaszd ki, hogy mikor utaznál"
                                                 triggers="mouseenter:mouseleave" class="btn btn-orange px-4" data-bs-target="#exampleModalCenter">
                                                 Foglalás

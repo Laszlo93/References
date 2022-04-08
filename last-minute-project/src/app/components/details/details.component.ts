@@ -4,7 +4,7 @@ import { BookedDate } from 'src/app/models/booked-date.model';
 import { PackageModel } from 'src/app/models/package.model';
 import { ProgramModel } from 'src/app/models/program.model';
 import { PackageService } from 'src/app/services/package.service';
-import { faInfo, faInfoCircle, faMapMarker, faCalendarCheck, faHotel, faHamburger, faPeopleArrows} from '@fortawesome/free-solid-svg-icons'
+import { faInfo, faInfoCircle, faMapMarker, faCalendarCheck, faHotel, faHamburger, faPeopleArrows } from '@fortawesome/free-solid-svg-icons';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 @Component({
@@ -36,6 +36,7 @@ export class DetailsComponent implements OnInit {
   faHotel = faHotel;
   faHamburger = faHamburger;
   faPeopleArrows = faPeopleArrows;
+  
 
   @ViewChild('map') mapElement?: ElementRef;
   //public mapReference: HTMLElement = this.mapElement?.nativeElement;
