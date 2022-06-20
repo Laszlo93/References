@@ -17,7 +17,7 @@ export class ItemsSidebarComponent implements OnInit, OnDestroy {
 
   public items: MenuItem[] = [];
   public currentItem?: Item;
-  private userDataObject?: UserDataModel;
+  public userDataObject?: UserDataModel;
 
   private userLoginSubscription?: Subscription;
   private sharedItemSubscription?: Subscription;
@@ -34,7 +34,6 @@ export class ItemsSidebarComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.sharedItemSubscription = this.sharedItem.currentSharedItem.subscribe(item => {
       this.currentItem = item;
-      this.regenerateNavbar();
     });
 
     this.userLoginSubscription = this.authService.getLoggedInUserObject().subscribe(
@@ -43,58 +42,6 @@ export class ItemsSidebarComponent implements OnInit, OnDestroy {
       }
     );
 
-    this.items = [
-      {
-        label: 'Cikk',
-        icon: 'pi pi-pw pi-file',
-        items: [
-        {
-          label: 'Hozzáadás',
-          icon: 'pi pi-fw pi-plus',
-          routerLink: 'add',
-          disabled: !this.userDataObject?.isAdmin,
-          command: () => { if (this.items[0].items) this.items[0].items[1].disabled = true }
-        },
-        {
-          label: 'Szerkesztés',
-          icon: 'pi pi-fw pi-pencil',
-          disabled: !this.userDataObject?.isAdmin,
-          command: () => this.recieveSharedItem(),
-        },
-        { separator: true },
-        {
-          label: 'Törlés',
-          icon: 'pi pi-fw pi-trash',
-          disabled: !this.userDataObject?.isAdmin,
-          command: () => this.confirmDeletion(this.currentItem),
-        }
-        ],
-        expanded: true
-      },
-      {
-        label: 'Szűrés',
-        icon: 'pi pi-fw pi-pencil',
-        expanded: true
-      },
-      {
-        label: 'Műveletek',
-        icon: 'pi pi-fw pi-question',
-        items: [
-          {
-            label: 'Importálás',
-            icon: 'pi pi-pi pi-folder-open'
-          },
-          {
-            label: 'Exportálás',
-            icon: 'pi pi-pi pi-file-excel',
-          }
-        ],
-        expanded: true
-      }
-    ];
-  }
-
-  public regenerateNavbar(): void {
     this.items = [
       {
         label: 'Cikk',

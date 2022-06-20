@@ -8,6 +8,7 @@ const swaggerUI = require('swagger-ui-express');
 
 const logger = require('./logger');
 const authHandler = require('./auth/authHandler');
+const adminOnly = require('./auth/adminOnly');
 const authenticationByJWT = require('./auth/authenticate');
 
 const angularAppPath = path.join(__dirname, '..', 'public', 'angular');
@@ -30,11 +31,7 @@ app.use('/logout', authHandler.logout);
 
 app.use('/items', require('./item/item.routes'));
 app.use('/users', require('./user/user.routes'));
-app.use('/history', authenticationByJWT, require('./history/history.routes'));
-
-// app.get('*', (req, res) =>{
-//     res.sendFile(angularAppPath + '/index.html');
-// });
+app.use('/history', authenticationByJWT, adminOnly, require('./history/history.routes'));
 
 app.use((err, req, res, next) => {
     logger.error(`ERROR ${err.statusCode}: ${err.message}`);
@@ -44,7 +41,12 @@ app.use((err, req, res, next) => {
     });
 });
 
-// const apiWrapper = express();
-// apiWrapper.use('/api', app);
+const apiWrapper = express();
+apiWrapper.use('/api', app);
+apiWrapper.use('/', express.static(angularAppPath));
+apiWrapper.use('/api-docs', swaggerUI.serve, swaggerUI.setup(YAML.load('./docs/openapi.yaml')));
+apiWrapper.get('*', (req, res) =>{
+    res.sendFile(angularAppPath + '/index.html');
+});
 
-module.exports = app;
+module.exports = apiWrapper;

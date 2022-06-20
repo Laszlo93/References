@@ -43,7 +43,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.userLoginSubscription = this.authService.getLoggedInUserObject().subscribe(
 userData => {
         this.userDataObject = userData;
-        this.regenerateNavbar();
       }
     );
 
@@ -71,32 +70,6 @@ userData => {
       },
     ];
 
-  }
-
-  public regenerateNavbar() {
-    this.items = [
-      {
-        label: 'Raktárkészlet',
-        icon: 'pi pi-fw pi-file',
-        routerLink: ['items']
-      },
-      // {
-      //   label: 'Ki/betárolás',
-      //   icon: 'pi pi-fw pi-pencil',
-      //   routerLink: ['stock-movement']
-      // },
-      {
-        label: 'Felhasználók',
-        icon: 'pi pi-fw pi-user',
-        routerLink: ['users'],
-        disabled: !this.userDataObject?.isAdmin
-      },
-      {
-        label: 'History',
-        routerLink: ['history'],
-        icon: 'pi pi-fw pi-history'
-      },
-    ];
   }
 
   public loginAuthenticationSettings() {

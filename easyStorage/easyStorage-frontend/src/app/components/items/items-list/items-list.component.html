@@ -22,7 +22,7 @@
         <th class="tight-column">Polc</th>
         <th class="tight-column">Doboz</th>
         <th class="tight-column">Darabszám</th>
-        <th class="actions-column"></th>
+        <th *ngIf="userDataObject" class="actions-column"></th>
       </tr>
       <tr>
         <th>
@@ -52,7 +52,7 @@
         <th class="tight-column"></th>
         <th class="tight-column"></th>
         <th class="tight-column"></th>
-        <th class="actions-column"></th>
+        <th *ngIf="userDataObject" class="actions-column"></th>
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-item>
@@ -78,7 +78,7 @@
         <td class="tight-column">
           <span>{{ item.quantity }}</span>
         </td>
-        <td class="actions-column">
+        <td *ngIf="userDataObject" class="actions-column">
           <div>
             <i (click)="increaseItemQuantitiy()" class="pi pi-plus-circle fs-3 px-1 text-success"></i>
             <i (click)="decreaseItemQuantitiy()" class="pi pi-minus-circle fs-3 px-1 text-danger"></i>

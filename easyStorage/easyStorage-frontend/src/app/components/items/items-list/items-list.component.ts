@@ -45,6 +45,8 @@ export class ItemsListComponent implements OnInit {
     this.userLoginSubscription = this.authService.getLoggedInUserObject().subscribe(
       userData => {
         this.userDataObject = userData;
+        console.log(this.userDataObject?.isAdmin);
+
       }
     );
   }

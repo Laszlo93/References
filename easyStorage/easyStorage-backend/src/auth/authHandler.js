@@ -12,7 +12,7 @@ module.exports.login = (req, res) => {
         .then(user => {
             if (user) {
                 const validPassword = bcrypt.compare(req.body.password, user.password);
-
+                console.log(user);
                 validPassword
                     .then(response => {
                         if(response) {
