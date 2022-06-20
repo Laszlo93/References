@@ -1,0 +1,86 @@
+<main class="card h-100">
+  <div class="container mt-3 py-3">
+    <div class="row">
+      <div class="col-md-4 m-auto">
+        <form [formGroup]="itemForm" (ngSubmit)="onSubmit()">
+          <div class="row">
+            <div class="col">
+              <div class="mb-2">
+                <label for="name" class="form-label">Megnevezés</label>
+                <input type="text" class="form-control" id="name" formControlName="name">
+                <!-- <small *ngIf="firstName?.dirty && firstName?.invalid" class="text-danger">Legalább 4 karakter és ne használj ékezetet!</small> -->
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="mb-2">
+                <label for="drawing-number" class="form-label">Rajzszám</label>
+                <input type="text" class="form-control" id="drawing-number" formControlName="drawingNumber">
+                <!-- <small *ngIf="lastName?.dirty && lastName?.invalid" class="text-danger">Legalább 4 karakter és ne használj ékezetet!</small> -->
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="mb-2">
+                <label for="customer-drawing-number" class="form-label">Vevői rajzszám</label>
+                <input type="text" class="form-control" id="customer-drawing-number"
+                  formControlName="customerDrawingNumber">
+                <!-- <small *ngIf="email?.dirty && email?.invalid" class="text-danger">Érvénytelen email!</small> -->
+              </div>
+            </div>
+          </div>
+          <div formGroupName="storage">
+            <div class="row">
+              <div class="col">
+                <div class="mb-2">
+                  <label class="form-label">Raktár</label>
+                  <select class="form-select" formControlName="storageName" aria-label="Default select example">
+                    <option value="Megamat1" selected>Megamat1</option>
+                    <option value="Megamat2">Megamat2</option>
+                    <option value="Alapanyag">Alapanyag</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="mb-2">
+                  <label for="shelf" class="form-label">Polc</label>
+                  <input type="text" class="form-control" id="shelf" formControlName="shelf">
+                  <!-- <small *ngIf="email?.dirty && email?.invalid" class="text-danger">Érvénytelen email!</small> -->
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="mb-2">
+                  <label for="box" class="form-label">Doboz</label>
+                  <input type="text" class="form-control" id="box" formControlName="box">
+                  <!-- <small *ngIf="email?.dirty && email?.invalid" class="text-danger">Érvénytelen email!</small> -->
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="mb-2">
+                <label for="quantity" class="form-label">Darabszám</label>
+                <input type="number" class="form-control" id="quantity" formControlName="quantity">
+                <!-- <small *ngIf="email?.dirty && email?.invalid" class="text-danger">Érvénytelen email!</small> -->
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <button type="submit" class="btn btn-success me-1">Hozzáad</button>
+              <button type="button" (click)="navigateToItemsList()" class="btn btn-secondary m-1">Mégse</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>

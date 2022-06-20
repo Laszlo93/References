@@ -1,0 +1,8 @@
+.tight-column {
+  min-width: 5rem;
+  max-width: 8rem;
+}
+
+.actions-column {
+  min-width: 7rem;
+}

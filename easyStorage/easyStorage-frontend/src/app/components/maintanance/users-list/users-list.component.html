@@ -1,0 +1,49 @@
+
+<div class="card">
+  <!-- <h5>Filter Row</h5>
+  <p>Filters are displayed inline within a separate row.</p> -->
+  <p-table #dt2 [value]="users" dataKey="id" [rows]="10" [showCurrentPageReport]="true"
+    [rowsPerPageOptions]="[10,25,50]" [loading]="loading" [paginator]="true"
+    currentPageReportTemplate="{first}-{last}/{totalRecords}"
+    [globalFilterFields]="['name','drawingNumber','customerDrawingNumber', 'storage', 'storagePlace']" [autoLayout]="true"
+    scrollHeight="calc(100vh - 210px)" [responsive]="true" responsiveLayout="stack">
+    <ng-template pTemplate="caption">
+      <div class="flex">
+        <span class="p-input-icon-left ml-auto">
+          <i class="pi pi-search"></i>
+          <input pInputText type="text" (input)="dt2.filterGlobal($any($event.target).value, 'contains')"
+            placeholder="Kulcsszó..." />
+        </span>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Felhasználó</th>
+        <th>Felhasználónév</th>
+        <th>Beosztás</th>
+        <th>Jogosultság</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-user>
+      <tr [pSelectableRow]="user" (click)="sendData(user)" (dblclick)="updateItem(user._id)">
+        <td>
+          {{ user.lastName }} {{user.firstName}}
+        </td>
+        <td>
+          <span>{{ user.username }}</span>
+        </td>
+        <td>
+          <span>{{ user.position }}</span>
+        </td>
+        <td>
+          <span>{{ user.isAdmin ? 'Admin' : 'Felhasználó' }}</span>
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+      <tr>
+        <td colspan="5">A keresett cikk nem található</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
