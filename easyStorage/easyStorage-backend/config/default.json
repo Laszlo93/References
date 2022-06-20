@@ -1,0 +1,13 @@
+{
+    "port": 3000,
+    "log_level_file": "info",
+    "log_level_console": "debug",
+    "database": {
+        "user": "demo",
+        "password": "demo",
+        "host": "democluster.rykrufu.mongodb.net/easyStorage?retryWrites=true&w=majority"
+    },
+    "access_token_secret_key": "acces_token_secret",
+    "refresh_token_secret_key": "refresh_token_secret",
+    "token_expiry": "5m"
+}
