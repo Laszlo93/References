@@ -1,0 +1,33 @@
+<div class="background-image"></div>
+<div class="container mt-5">
+  <div class="row d-flex flex-column align-items-center">
+    <div class="col-md-6 col-lg-5 col-xl-4">
+      <div class="card p-3">
+        <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+          <div class="form-group m-2">
+            <label class="text-white" for="exampleInputEmail1">Felhasználónév</label>
+            <input ngModel required name name="username" type="text" class="form-control" id="username" placeholder="Felhasználónév...">
+          </div>
+          <div class="form-group m-2">
+            <label class="text-white" for="exampleInputPassword1">Jelszó</label>
+            <input ngModel required name="password" type="password" class="form-control" id="password" placeholder="Jelszó...">
+          </div>
+          <div class="form-group m-2">
+            <label class="text-white" for="exampleFormControlSelect1">Nyelv</label>
+            <select class="form-control" id="exampleFormControlSelect1">
+              <option selected>Magyar</option>
+              <option>Angol</option>
+            </select>
+          </div>
+          <div class="text-end m-2 enter-without-login" (click)="showItemsWithoutLogin()">Belépés bejelentkezés nélkül</div>
+          <div class="text-center">
+            <button type="submit" pButton pRipple class="m-2">Bejelentkezés</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p-toast></p-toast>
+

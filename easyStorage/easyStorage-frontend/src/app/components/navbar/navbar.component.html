@@ -1,0 +1,19 @@
+<div>
+  <p-menubar [model]="items" orientation="vertical">
+    <div class="d-flex align-items-center">
+      <countdown *ngIf="userDataObject" class="p-1" [config]="{ leftTime: loginTime, format: 'mm:ss' }"></countdown>
+      <span class="p-1 me-2">{{ userDataObject?.name }}</span>
+      <button *ngIf="!userDataObject" (click)="login()" pButton pRipple label="Bejelentkezés" icon="pi pi-power-off"></button>
+      <button *ngIf="userDataObject" (click)="logout()" pButton pRipple label="Kijelentkezés" icon="pi pi-power-off"></button>
+    </div>
+  </p-menubar>
+</div>
+
+<p-dialog header="Megerősítés" [(visible)]="loginTime < 30 && userDataObject" [modal]="true" [closable]="false" [style]="{width: '35vw'}">
+  <h4 class="mb-3">Szeretne bejelentkezve maradni?</h4>
+  <h5>Hátralévő idő: {{ loginTime }} másodperc</h5>
+  <ng-template pTemplate="footer">
+      <p-button (click)="confirmLoginExtension()" icon="pi pi-check" label="Igen" styleClass="p-button-text"></p-button>
+      <p-button (click)="rejectLoginExtension()" icon="pi pi-times" label="Nem" styleClass="p-button-text"></p-button>
+  </ng-template>
+</p-dialog>
