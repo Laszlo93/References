@@ -1,7 +1,0 @@
-.card {
-  background-color: rgb(248, 249, 250);
-}
-
-:host ::ng-deep .p-dropdown {
-  width: 14rem;
-}
