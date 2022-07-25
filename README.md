@@ -10,9 +10,7 @@ Az egyszerűbb használat érdekében bejelentkezés nélkül is lekérhetőek a
 
 # Link
 
-```
 [](https://easy-storage-v2.herokuapp.com)
-```
 
 <br>
 
