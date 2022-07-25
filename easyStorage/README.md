@@ -8,6 +8,14 @@ Az egyszerűbb használat érdekében bejelentkezés nélkül is lekérhetőek a
 
 <br>
 
+# Link (Heroku deploy)
+
+```
+https://easy-storage-v2.herokuapp.com
+```
+
+<br>
+
 # Alkalmazás futtatása
 
 ```
